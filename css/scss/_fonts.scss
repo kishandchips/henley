@@ -1,0 +1,18 @@
+@mixin lucida-regular {
+	font-family:'Lucida$ Sans W01 Roman';
+	font-weight: normal;
+}
+
+.lucida-regular {
+	@include lucida-regular;
+}
+
+@mixin lucida-bold {
+	font-family:'Lucida$ Sans W01 Bold';
+	font-weight: normal;
+}
+
+.lucida-bold {
+	@include lucida-bold;
+}
+
