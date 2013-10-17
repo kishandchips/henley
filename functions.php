@@ -27,7 +27,7 @@ function henley_setup() {
 	require( get_template_directory() . '/inc/shortcodes.php' );
 
 	register_nav_menus( array(
-		'primary_header' => __( 'Primary Header Menu', 'ivip' )
+		'primary_header' => __( 'Primary Header Menu', 'henley' )
 	) );
 
 	add_editor_style('css/editor-styles.css');
