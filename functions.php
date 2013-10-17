@@ -49,9 +49,9 @@ if ( ! function_exists( 'custom_tinymce_options' )) {
 
 	// Custom post types
 
-	$work_item = new Custom_Post_Type( 'Work Item', 
+	$news = new Custom_Post_Type( 'News Item', 
  		array(
- 			'rewrite' => array( 'with_front' => false, 'slug' => get_page_uri(get_kishandchips_option('work_archive_page_id'))),
+ 			'rewrite' => array( 'with_front' => false, 'slug' => get_page_uri(get_kishandchips_option('news_archive_page_id'))),
  			'capability_type' => 'post',
  		 	'publicly_queryable' => true,
    			'has_archive' => true, 
@@ -59,7 +59,7 @@ if ( ! function_exists( 'custom_tinymce_options' )) {
     		'exclude_from_search' => false,
     		'menu_position' => null,
     		'supports' => array('title', 'thumbnail', 'editor'),
-    		'plural' => 'Our Work'
+    		'plural' => 'News'
    		)
    	);	
 
