@@ -200,6 +200,33 @@ body {
 }
 		
 #footer {
+
+	.container {
+
+		@media only screen and (max-width: 1170px){
+		 	margin: 0;
+		}		
+
+		.inner {
+			background: #12448b url('../images/backgrounds/footer-curve.jpg') center top no-repeat;
+			color: #FFF;
+			padding-top: 115px;
+		}
+
+		#menu-primary-footer {
+			padding: 0;
+			margin: 0;
+
+			li {
+				float: left;
+
+				a {
+					color: #000;
+				}
+			}
+		}		
+	}
+
 }
 
 

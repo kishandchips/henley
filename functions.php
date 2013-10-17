@@ -24,10 +24,13 @@ if ( ! function_exists( 'henley_setup' ) ):
  */
 function henley_setup() {
 
-	require( get_template_directory() . '/inc/shortcodes.php' );
+	require( get_template_directory() . '/inc/custom_post_type.php' );
+
+	require( get_template_directory() . '/inc/options.php' );
 
 	register_nav_menus( array(
-		'primary_header' => __( 'Primary Header Menu', 'henley' )
+		'primary_header' => __( 'Primary Header Menu', 'henley' ),
+		'primary_footer' => __( 'Primary Footer Menu', 'henley' )
 	) );
 
 	add_editor_style('css/editor-styles.css');
@@ -43,3 +46,22 @@ if ( ! function_exists( 'custom_tinymce_options' )) {
 		return $init;
 	}
 }
+
+	// Custom post types
+
+	$work_item = new Custom_Post_Type( 'Work Item', 
+ 		array(
+ 			'rewrite' => array( 'with_front' => false, 'slug' => get_page_uri(get_kishandchips_option('work_archive_page_id'))),
+ 			'capability_type' => 'post',
+ 		 	'publicly_queryable' => true,
+   			'has_archive' => true, 
+    		'hierarchical' => true,
+    		'exclude_from_search' => false,
+    		'menu_position' => null,
+    		'supports' => array('title', 'thumbnail', 'editor'),
+    		'plural' => 'Our Work'
+   		)
+   	);	
+
+ 	// global $wp_rewrite;
+	// $wp_rewrite->flush_rules();
