@@ -11,16 +11,19 @@
 
 			wp_enqueue_script('modernizr', get_template_directory_uri().'/js/libs/modernizr.min.js');
 			wp_enqueue_script('jquery', get_template_directory_uri().'/js/libs/jquery.min.js');
+			wp_enqueue_script('scroller', get_template_directory_uri().'/js/plugins/jquery.scroller.js');	
 			wp_enqueue_script('easing', get_template_directory_uri().'/js/plugins/jquery.easing.js');
 			wp_enqueue_script('main', get_template_directory_uri().'/js/main.js');
 		}
 		add_action('wp_enqueue_scripts', 'load_assets');
 	?>
 	<?php wp_head(); ?>
-	<!--[if lt IE 8]> <script src="<?php bloginfo('template_url')?>/js/lte-ie7.js"></script> <![endif]-->
 	<!--[if IE]>
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/css/ie.css" />
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/css/ie.css" />
 	<![endif]-->
+	<!--[if lt IE 8]> <script src="<?php bloginfo('template_url')?>/js/lte-ie7.js"></script> <![endif]-->
+	<!--[if lt IE 8]> <script src="<?php bloginfo('template_url')?>/css/ie7.css"></script> <![endif]-->
+
     <script type="text/javascript">
 		var themeUrl = '<?php bloginfo( 'template_url' ); ?>';
 		var baseUrl = '<?php bloginfo( 'url' ); ?>';
@@ -45,11 +48,52 @@
 					</div>
 				</div>
 				<div class="navigation-container clearfix">
-					<button class="mobile-navigation-btn uppercase"><i aria-hidden="true" class="icon-arrow-down tiny"></i>menu</button>
+					<button class="mobile-navigation-btn uppercase"><i aria-hidden="true" class="icons-down_arrow"></i>menu</button>
 					<nav role="navigation" class="site-navigation main-navigation">
 						<?php wp_nav_menu( array( 'theme_location' => 'primary_header', 'menu_class' => 'clearfix menu', 'container' => false ) ); ?>
 					</nav><!-- .site-navigation .main-navigation -->
 				</div>
 			</div>		
 		</header><!-- #masthead -->
+
+		<?php if(get_field('slideshow')): ?>
+			<?php
+				$values = get_field('slideshow');
+				$number_of_slides = count($values);
+				?>
+				<?php if($number_of_slides > 1): ?>
+					<div id="homepage-scroller" class="scroller container" data-auto-scroll="true">
+						<div class="outer">
+							<div class="inner">
+								<div class="scroller-mask">						
+									<?php $i = 0; ?>
+									<?php while (the_repeater_field('slideshow')) : ?>					
+									<div class="scroll-item <?php if($i == 0) echo 'current'; ?>">
+										<img class="scale" src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('title'); ?>">
+										<span class="title <?php the_sub_field('title_position'); ?>">
+											<?php the_sub_field('title'); ?>
+										</span>
+									</div>
+									<?php $i++; ?>
+									<?php endwhile; ?>
+								</div>
+								<div class="scroller-navigation">
+									<a class="prev-btn icons-arrow-left"></a>
+									<a class="next-btn icons-arrow-right"></a>
+								</div>
+							</div>
+						</div>
+					</div><!-- #homepage-scroller -->			
+				<?php else: ?>
+					<div class="header-image container">
+						<?php while (the_repeater_field('slideshow')) : ?>					
+							<img class="scale" src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('title'); ?>">
+							<span class="title <?php the_sub_field('title_position'); ?>">
+								<?php the_sub_field('title'); ?>
+							</span>
+						<?php endwhile; ?>			
+					</div>
+				<?php endif; ?>
+		<?php endif; ?>		
+
 		<div id="main" role="main">

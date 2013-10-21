@@ -1,19 +1,18 @@
 <?php $id = (isset($id)) ? $id : $post->ID; ?>
 <?php $i = 0; ?>
+
+
 <?php if(get_field('content', $id)): ?>
 <?php while (has_sub_field('content', $id)) : ?>
-<?php 
-	$background_image_id = get_sub_field('background_image_id');
-	$background_image = wp_get_attachment_image_src($background_image_id, 'full');    			
-?>
 <?php
 	$layout = get_row_layout();
+
 	switch($layout){
 
 		case 'row':	
 			if(get_sub_field('column')):
 ?>
-			<div id="<?php the_sub_field('anchor_tag'); ?>" class="row" style="background-color: <?php the_sub_field('background_color') ?>; background-image: url(<?php echo $background_image[0]; ?>); <?php the_sub_field('css'); ?>">
+			<div class="row" style="<?php the_sub_field('css'); ?>">
 				<div class="container">
 					<div class="inner clearfix">
 					

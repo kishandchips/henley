@@ -1,14 +1,16 @@
-/* Load this script using conditional IE comments if you need to support IE 7 and IE 6. */
+/* To avoid CSS expressions while still supporting IE 7 and IE 6, use this script */
+/* The script tag referring to this file must be placed before the ending body tag. */
 
-window.onload = function() {
+(function() {
 	function addIcon(el, entity) {
 		var html = el.innerHTML;
 		el.innerHTML = '<span style="font-family: \'icons\'">' + entity + '</span>' + html;
 	}
 	var icons = {
-			'icon-icon2' : '&#x31;',
-			'icon-icon1' : '&#x32;',
-			'icon-arrow-down' : '&#x33;'
+		'icons-arrow-right': '&#xe600;',
+		'icons-arrow-left': '&#xe601;',
+		'icons-down_arrow': '&#xe602;',
+		'0': 0
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, c, el;
@@ -22,9 +24,9 @@ window.onload = function() {
 			addIcon(el, attr);
 		}
 		c = el.className;
-		c = c.match(/icon-[^\s'"]+/);
+		c = c.match(/icons-[^\s'"]+/);
 		if (c && icons[c[0]]) {
 			addIcon(el, icons[c[0]]);
 		}
 	}
-};
+}());
