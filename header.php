@@ -57,12 +57,13 @@
 		</header><!-- #masthead -->
 
 		<?php if(get_field('slideshow')): ?>
+		<div id="header-image" class="container clearfix">
 			<?php
 				$values = get_field('slideshow');
 				$number_of_slides = count($values);
 				?>
 				<?php if($number_of_slides > 1): ?>
-					<div id="homepage-scroller" class="scroller container" data-auto-scroll="true">
+					<div id="homepage-scroller" class="scroller" data-auto-scroll="true">
 						<div class="outer">
 							<div class="inner">
 								<div class="scroller-mask">						
@@ -85,15 +86,16 @@
 						</div>
 					</div><!-- #homepage-scroller -->			
 				<?php else: ?>
-					<div class="header-image container">
-						<?php while (the_repeater_field('slideshow')) : ?>					
+					<?php while (the_repeater_field('slideshow')) : ?>		
+						<div class="scroll-item">
 							<img class="scale" src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('title'); ?>">
 							<span class="title <?php the_sub_field('title_position'); ?>">
 								<?php the_sub_field('title'); ?>
 							</span>
-						<?php endwhile; ?>			
-					</div>
+						</div>
+					<?php endwhile; ?>								
 				<?php endif; ?>
+			</div>	
 		<?php endif; ?>		
 
 		<div id="main" role="main">

@@ -1,81 +1,103 @@
-<?php $id = (isset($id)) ? $id : $post->ID; ?>
-<?php $i = 0; ?>
+<?php while(has_sub_field("content")): ?>
+<?php $layout = get_row_layout(); ?>
 
+	<?php if(get_row_layout() == "content"): ?>
 
-<?php if(get_field('content', $id)): ?>
-<?php while (has_sub_field('content', $id)) : ?>
-<?php
-	$layout = get_row_layout();
+		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
+			<h1><?php the_sub_field("title"); ?></h1>
+			<?php the_sub_field("content_field"); ?>
+		</div>
+ 
+	<?php elseif(get_row_layout() == "content_image"): ?>
+ 
+		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
+			<div class="images-bar">
+				<img class="scale" src="<?php the_sub_field("image"); ?>" alt="<?php the_sub_field("title"); ?>">
 
-	switch($layout){
+				<?php 
+					$images = get_sub_field('images');
+					if( $images ): ?>
+			            <?php foreach( $images as $image ): ?>
+			                    <img class="scale"  src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+			            <?php endforeach; ?>
+				<?php endif; ?>				
+			</div>
+			<h1><?php the_sub_field("title"); ?></h1>
+			<?php the_sub_field("img-content"); ?>
+		</div>
 
-		case 'row':	
-			if(get_sub_field('column')):
-?>
-			<div class="row" style="<?php the_sub_field('css'); ?>">
-				<div class="container">
-					<div class="inner clearfix">
-					
-
-					<?php $total_columns = count( get_sub_field('column', $id)); ?>
-					<?php while (has_sub_field('column', $id)) : ?>
-						<?php 
-							$col_background_image_id = get_sub_field('column_background_image_id');
-							$col_background_image = wp_get_attachment_image_src($col_background_image_id, 'full');
-						?>
-					
-						<?php
-						switch($total_columns){
-							case 2:
-								$class = 'five';
-								break;
-							case 3:
-								$class = 'one-third';
-								break;
-							case 4:
-								$class = 'one-fourth';
-								break;
-							case 5:
-								$class = 'one-fifth';
-								break;
-							case 1:
-							default:
-								$class = 'ten';
-								break;
-						} ?>
-						<div class="break-on-mobile span equal-height <?php if( get_sub_field('hide_on_mobile', $curr_page->ID) == true ) { ?>hide-on-mobile<?php } ?> <?php echo $class; ?>" style="<?php the_sub_field('css'); ?>; background-image: url(<?php echo $col_background_image[0]; ?>);">
+	<?php elseif(get_row_layout() == "accordion"): ?>
+ 
+		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
+			<h1><?php the_sub_field("title"); ?></h1>
+			<?php if(get_sub_field('items')): $i = 0; ?>
+				<?php while(has_sub_field('items')): $i++; ?>	
+					<div class="accordion" data-id="<?php echo $i; ?>">
+						<h2><?php the_sub_field("title"); ?></h2>
+						<div class="content" data-id="<?php echo $i; ?>">
 							<?php the_sub_field('content'); ?>
 						</div>
-					<?php endwhile; ?>
-					</div>
-				</div>				
-			</div>
+					</div>		 					
+				<?php endwhile; ?>
 			<?php endif; ?>
-			<?php break; ?>
-		<?php case 'pages':  ?>
+		</div>	
+ 
+	<?php elseif(get_row_layout() == "accordion_image"): // layout: Featured Posts ?>
 
-			<?php $pages = get_sub_field('pages'); ?>
-			<?php if(!empty($pages)): ?>
-			<div class="pages">
-				<header class="line-header"><h5 class="title"><?php the_sub_field('title'); ?></h5></header>
-				<ul class="page-list clearfix">
-					<?php foreach($pages as $post): ?>
-					<?php setup_postdata($post) ?>
-					<li class="page span">
-						<a href="<?php the_permalink(); ?>" class="overlay-btn">
-							<?php the_post_thumbnail('thumbnail', array('class' => 'scale')); ?>
-						</a>
-						<h6 class="uppercase"><a href="<?php the_permalink(); ?>" class="uppercase"><?php the_title(); ?></a></h6>
-					</li>
-				<?php endforeach; ?>
-				<?php wp_reset_postdata(); ?>
-				</ul>
-			</div>
+		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
+			<div class="images-bar">
+				<img class="scale" src="<?php the_sub_field("image"); ?>" alt="<?php the_sub_field("title"); ?>">
+				<?php 
+					$images = get_sub_field('images');
+					if( $images ): ?>
+			            <?php foreach( $images as $image ): ?>
+			                    <img class="scale" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+			            <?php endforeach; ?>
+				<?php endif; ?>				
+			</div>			
+			<h1><?php the_sub_field("title"); ?></h1>
+			<?php if(get_sub_field('items')): $i = 0; ?>
+				<?php while(has_sub_field('items')): $i++; ?>	
+					<div class="accordion" data-id="<?php echo $i; ?>">
+						<h2><?php the_sub_field("title"); ?></h2>
+						<div class="content" data-id="<?php echo $i; ?>">
+							<?php the_sub_field('content'); ?>
+						</div>
+					</div>		 					
+				<?php endwhile; ?>
 			<?php endif; ?>
-			<?php break; ?>
+		</div>
 
-	<?php } ?>
+	<?php elseif(get_row_layout() == "columns"): ?>		
 
-<?php $i++; ?>
+	<div class="columns">
+		<?php $total_columns = count( get_sub_field('column-content')); ?>
+		<?php while (has_sub_field('column-content')) : ?>
+
+		<?php
+		switch($total_columns){
+			case 2:
+				$class = 'five';
+				break;
+			case 3:
+				$class = 'one-third';
+				break;
+			case 4:
+				$class = 'one-fourth';
+				break;
+			case 5:
+				$class = 'one-fifth';
+				break;
+			case 1:
+			default:
+				$class = 'ten';
+				break;
+		} ?>
+			<div class="break-on-mobile span equal-height <?php echo $class; ?>" style="<?php the_sub_field('css'); ?>;">
+				<?php the_sub_field('content'); ?>
+			</div>
+		<?php endwhile; ?>
+	</div>
+ 
+	<?php endif; ?>
 <?php endwhile; ?>
-<?php endif; ?>

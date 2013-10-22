@@ -15,7 +15,7 @@ get_header(); ?>
 
 <div id="page" class="container">
 	<?php while ( have_posts() ) : the_post(); ?>
-	<div id="content" <?php post_class(); ?>>
+	<div id="content" class="break-on-mobile">
 		<?php if(!$post->post_content == ''): ?>
 		<div class="page-content">
 			<?php the_content(); ?>
@@ -25,6 +25,7 @@ get_header(); ?>
 			<?php get_template_part('inc/content'); ?>
 		<?php endif; ?>
 	</div>
+	<?php get_template_part('sidebar'); ?>
 	<?php endwhile; // end of the loop. ?>
 </div><!-- #page -->
 <?php get_footer(); ?>

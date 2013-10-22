@@ -2,11 +2,10 @@
 	<footer id="footer"  role="contentinfo">
 		<div class="container">
 			<div class="inner content clearfix">
-				<div class="span two logos break-on-mobile">
+				<div class="span two logos">
 					<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer First Column')) : ?><?php endif; ?>
 				</div>
-				<div class="span two footer-menu break-on-mobile">
-					<button class="mobile-navigation-btn uppercase">menu <i aria-hidden="true" class="icons-down_arrow"></i></button>
+				<div class="span two footer-menu">
 					<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Second Column')) : ?><?php endif; ?>
 				</div>
 				<div class="span five break-on-mobile">
