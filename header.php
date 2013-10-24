@@ -69,7 +69,7 @@
 								<div class="scroller-mask">						
 									<?php $i = 0; ?>
 									<?php while (the_repeater_field('slideshow')) : ?>					
-									<div class="scroll-item <?php if($i == 0) echo 'current'; ?>">
+									<div class="scroll-item <?php if($i == 0) echo 'current'; ?>" data-id="<?php echo $i;?>">
 										<img class="scale" src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('title'); ?>">
 										<span class="title <?php the_sub_field('title_position'); ?>">
 											<?php the_sub_field('title'); ?>

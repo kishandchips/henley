@@ -21,7 +21,16 @@
 					
 					scroller.scroller(options);
 				});				
-			}			
+			}	
+
+			$('.accordion-item').on('click', function() {
+				var id = $(this).data('id'),
+					item = $('.accordion .content[data-id='+id+']');
+				item.slideToggle(300);
+				$(this).toggleClass('open');
+			});
+
+			$('#content h1:first').addClass('first');	
 
 			$('a[href^=#].scroll-to-btn').click(function(){
 				var target = $($(this).attr('href'));

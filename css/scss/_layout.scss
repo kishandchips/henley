@@ -272,20 +272,37 @@ body {
 
 		.row {
 
-			p {
-				overflow: hidden;
-			}
-
 			ul {
 				li {
 					line-height: 1.5;
-					padding-left: 20px;
-					background: url('../images/misc/list_bullet.jpg') left center no-repeat;
-					@include inline-block;
+					padding-left: 15px;
+					background: url('../images/misc/list_bullet.jpg') left 2px no-repeat;
+					display: block;
 					overflow: hidden;
 					color: #333;
+					margin: 2px 0;
+
+					a {
+						color: #174686;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}					
 				}
 			}
+
+			p {
+				overflow: hidden;
+
+				a {
+					color: #174686;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}			
 
 			table {
 				width: 100%;
@@ -313,8 +330,7 @@ body {
 						color: #555555;
 					}					
 				}
-
-			}
+			}		
 
 			.images-bar {
 				float:left;
@@ -325,7 +341,83 @@ body {
 					margin-bottom: 6px;
 				}
 			}
+
+			.accordion-item {
+
+				.trigger {
+					@include font-size(18);
+					color: #12108d;
+
+					&:hover {
+						text-decoration: underline;
+					}					
+				}
+
+				.content {
+					display: none;	
+
+					p {
+						margin: 0;
+					}
+				}
+
+				&.open {
+					.content {
+						display: block;
+					}
+				}
+			}
 		}
+
+		.columns {
+
+			.span {
+				padding: 13px;
+
+				.inner {
+					padding: 15px;
+					border: 1px solid #333;	
+					position: relative;
+					padding-bottom: 50px;
+
+					@media only screen and (max-width: 650px){
+						padding-bottom: 15px;
+					}
+
+					img {
+						float:left;
+						margin-right: 15px;
+						margin-bottom: 15px;
+						max-width: 45%;
+						height: auto;
+
+						@include device-width(7) {
+							display: none;
+						}
+
+						@include device-width(5) {
+							display: block;
+							max-width: 35%;
+						}
+
+
+					}	
+
+					.button {
+						position: absolute;
+						right: 20px;
+						bottom: 20px;
+
+						@media only screen and (max-width: 650px){
+						 	position: static;
+						 	width: 100%;
+						 	display: block;
+						 	@include box-sizing(border-box);
+						}						
+					}			
+				}
+			}
+		}			
 	}
 
 	#sidebar {
@@ -333,12 +425,63 @@ body {
 		float:right;
 		@include box-sizing(border-box);
 
-		ul {
+		> ul {
 			padding: 0;
 			margin: 0;
+
+			li.widget {
+				border: 1px solid #333;
+				padding: 20px;
+
+				.gform_wrapper {
+
+					.gform_heading {
+
+						.gform_title {
+							@include font-size(20);
+							@include lucida-regular;
+							color: #12108d;
+							text-transform: none;
+							line-height: 1.2;
+						}
+
+						.gform_description {
+							@include lucida-regular;
+							color: #333;
+							@include font-size(13);
+							line-height: 1.5;
+							margin-top: 15px;
+							display: block;
+						}
+					}
+
+					.gform_body {
+
+						input[type=text], input[type=url], input[type=email], input[type=tel], input[type=number], input[type=password] {
+							border: 1px solid #c0c0c0;
+							padding: 15px;			
+							@include border-radius(2px);				
+						}
+
+						input[type=select] {
+							-webkit-appearance: none;
+							
+						}
+					}
+				}
+			}
 		}
 	}
+}
 
+#alumni {
+	.columns {
+		margin-bottom: 100px;
+
+		.span {
+			width: 50%;
+		}
+	}
 }
 
 		
@@ -600,5 +743,3 @@ body {
 		}
 	}
 }
-
-
