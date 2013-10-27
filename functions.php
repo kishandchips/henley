@@ -36,6 +36,15 @@ function henley_setup() {
 }
 endif; // henley_setup
 
+add_shortcode('call', 'call_function');
+function call_function() {
+	return '<div id="call-now">
+		<h1>Call Now:</h1> <p class="number">0800-XXX-XXX</p>
+		<p>International Toll-free</p>
+		<a href="#" class="button">Click To Call</a>
+	</div>';
+}
+
 
 add_action( 'after_setup_theme', 'henley_setup' );
 

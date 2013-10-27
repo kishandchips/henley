@@ -32,10 +32,10 @@
 			<h1><?php the_sub_field("title"); ?></h1>
 			<?php if(get_sub_field('items')): $i = 0; ?>
 				<?php while(has_sub_field('items')): $i++; ?>	
-					<div class="accordion" data-id="<?php echo $i; ?>">
-						<h2><?php the_sub_field("title"); ?></h2>
+					<div class="accordion-item" data-id="<?php echo $i; ?>">
+						<h2><a class="trigger" data-id="<?php echo $i; ?>"><?php the_sub_field("title"); ?></a></h2>
 						<div class="content" data-id="<?php echo $i; ?>">
-							<?php the_sub_field('content'); ?>
+							<p><?php the_sub_field('content'); ?></p>
 						</div>
 					</div>		 					
 				<?php endwhile; ?>
@@ -58,10 +58,10 @@
 			<h1><?php the_sub_field("title"); ?></h1>
 			<?php if(get_sub_field('items')): $i = 0; ?>
 				<?php while(has_sub_field('items')): $i++; ?>	
-					<div class="accordion" data-id="<?php echo $i; ?>">
-						<h2><?php the_sub_field("title"); ?></h2>
+					<div class="accordion-item" data-id="<?php echo $i; ?>">
+						<h2><a class="trigger" data-id="<?php echo $i; ?>"><?php the_sub_field("title"); ?></a></h2>
 						<div class="content" data-id="<?php echo $i; ?>">
-							<?php the_sub_field('content'); ?>
+							<p><?php the_sub_field('content'); ?></p>
 						</div>
 					</div>		 					
 				<?php endwhile; ?>
@@ -70,7 +70,7 @@
 
 	<?php elseif(get_row_layout() == "columns"): ?>		
 
-	<div class="columns">
+	<div class="columns clearfix">
 		<?php $total_columns = count( get_sub_field('column-content')); ?>
 		<?php while (has_sub_field('column-content')) : ?>
 
@@ -93,8 +93,15 @@
 				$class = 'ten';
 				break;
 		} ?>
-			<div class="break-on-mobile span equal-height <?php echo $class; ?>" style="<?php the_sub_field('css'); ?>;">
-				<?php the_sub_field('content'); ?>
+			<div class="break-on-mobile span <?php echo $class; ?>" style="<?php the_sub_field('css'); ?>;">
+				<div class="inner equal-height">
+					<div class="content clearfix">
+						<?php the_sub_field('content'); ?>
+					</div>
+						<?php if(get_sub_field('link_to')): ?>
+						<a href="<?php the_sub_field('link_to'); ?>" class="button"><?php _e('Tell me more')?></a>
+					<?php endif?>
+				</div>
 			</div>
 		<?php endwhile; ?>
 	</div>
