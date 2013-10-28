@@ -257,7 +257,29 @@
 		main.loaded();
 		main.equalHeight();	
 		main.resize();
-
+		
+		// if (empty($_COOKIE['first_time'])) {
+		//	show_welcome_message();
+		//	setcookie("first_time", 1, time()+157680000);  /* expire in 5 years */
+		// }
+		
 	});
-
+	
+	$(window).scroll(function() {
+    if ($(this).scrollTop() < 500) {
+        $("#slideupbox").slideUp();
+    }
+    else {
+       	 $("#slideupbox").slideDown();
+		}
+	});
+	
+	$(function() {
+		
+		$('#slideupbox .close-link').click(function() {
+			$('#slideupbox').slideUp().addClass('hide');
+			return false;
+		});
+	});
+	
 })(jQuery);

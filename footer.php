@@ -1,4 +1,18 @@
 	</div><!-- #main -->
+	<?php 
+	    query_posts(array( 
+	        'post_type' => 'popup',
+	        'showposts' => 1
+	    ) );  
+	?>
+	<?php while (have_posts()) : the_post(); ?>
+	        <div id="slideupbox">
+	        	<a href="#" class="close-link">x</a>
+				<h1><?php the_title(); ?></h1>
+				<p><?php the_content(); ?></p>
+			</div>
+	<?php endwhile;?>
+	
 	<footer id="footer"  role="contentinfo">
 		<div class="container">
 			<div class="inner content clearfix">
