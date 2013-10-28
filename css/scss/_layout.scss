@@ -647,30 +647,47 @@ h1.phone-number {
 
 #contact-form {
 	max-width: 580px;
-	li {
-		background: none !important;
+
+	ul {
+		border: 1px solid #d6d6d6;
+		@extend .clearfix;
+
+		li {
+			background: none !important;
+			overflow: visible !important;
+		}
 	}
+
+
 	label {
 		background: #fbfbfb;
 		color: #666;
 		text-align: right;
-		padding: 20px;
-		margin: none;
-		max-width: 140px !important;
+		padding: 4% 4% 4% 0;
+		float: left;
+		width: 30%;
 		border-right: 1px solid #dadada;
+		margin: 0;
 	}
+
+	.ginput_container {
+		float: right;
+		width: 57%;
+		padding: 3%;
+	}
+
 	.comment label {
 		height: 200px;
 	}
+
 	.gfield {
 		border: 1px solid #d6d6d6;
 		padding-left: 0 !important;
 		margin: -1px 0 0 0 !important;
 	}
 	input[type="text"] {
-		width: 230px;
 		padding: 10px;
-		margin: 16px;
+		width: 100%;
 	}
 	select {
 		margin: 20px 15px !important;
@@ -680,9 +697,9 @@ h1.phone-number {
 		float: right;
 	}
 	textarea {
-		margin: 20px;
-		max-width: 280px;
-		padding: 10px;
+		padding: 2%;
+		width: 96%;
+		border: 1px solid #aaaaaa;
 	}
 }
 

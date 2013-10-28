@@ -44,7 +44,7 @@
 			<?php endif; ?>
 		</div>	
  
-	<?php elseif(get_row_layout() == "accordion_image"): // layout: Featured Posts ?>
+	<?php elseif(get_row_layout() == "accordion_image"): ?>
 
 		<div id="acc-<?php echo $e; ?>" class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
 			<div class="images-bar">
@@ -72,7 +72,20 @@
 			</div>
 		</div>
 
+	<?php elseif(get_row_layout() == "ajax_content"): ?>	
+	
+		<div id="ajax-content" style="<?php the_sub_field("css"); ?>">
+
+		</div>	
+		<script>
+			var myUrl = '<?php the_sub_field("ajax-content"); ?>' + " <?php the_sub_field("selector"); ?>";
+			jQuery("#ajax-content").load(myUrl);
+			return false;
+		</script>
+
 	<?php elseif(get_row_layout() == "columns"): ?>		
+
+	
 
 	<div class="columns clearfix">
 		<?php $total_columns = count( get_sub_field('column-content')); ?>
