@@ -1228,6 +1228,34 @@ h1.phone-number {
 	width: 250px;
 	z-index: 9999;
 	box-shadow: 0 0 5px #174686;
+
+	ul {
+		padding: 0;
+
+		li {
+			line-height: 1.5;
+			padding-left: 15px;
+			background: url('../images/misc/list_bullet.jpg') left 2px no-repeat;
+			display: block;
+			overflow: hidden;
+			color: #333;
+			margin: 2px 0;			
+		}
+	}
+
+	.gform_body {
+
+		ul {
+			padding: 0;
+			margin: 0;
+
+			li {
+				background: none;
+				padding: 0;
+			}
+		}
+	}
+
 	.close-link {
 		position: absolute;
 		top: 8px;

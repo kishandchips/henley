@@ -272,7 +272,7 @@ body {
 
 		.row {
 
-			ul {
+			ul, #slideupbox & {
 				li {
 					line-height: 1.5;
 					padding-left: 15px;
@@ -472,7 +472,7 @@ body {
 				}
 
 				&.gform_widget {
-					
+
 					input[type=submit] {
 						width: 100%;
 					}
