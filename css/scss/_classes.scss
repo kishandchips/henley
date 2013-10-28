@@ -1120,9 +1120,12 @@ $total_columns: length($columns);
 }
 
 #call-box {
+	@extend .clearfix;
+
 	.button{
 		margin: 30px 0 0 0;
 		display: inline-block;
+		@extend .right;
 	}
 	p {
 		margin: 0 !important;
@@ -1140,12 +1143,15 @@ h1.phone-number {
 }
 
 #mba-sidebar {
+	@extend .clearfix;
+
 	img {
 		width: 100%;
 	}
 	a.button {
 		display: inline-block;
 		margin: 15px 0 0 0;
+		@extend .right;
 	}
 }
 

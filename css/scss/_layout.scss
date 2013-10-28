@@ -272,7 +272,7 @@ body {
 
 		.row {
 
-			ul, #slideupbox & {
+			ul, {
 				li {
 					line-height: 1.5;
 					padding-left: 15px;
@@ -335,11 +335,25 @@ body {
 			.images-bar {
 				float:left;
 				width: 32%;
-				margin-right: 30px;
+				margin-right: 3%;
 
 				img {
 					margin-bottom: 6px;
 				}
+
+				@include device-width(4) {
+					width: 100%;
+				}
+			}
+
+			.content-wrapper {
+				float: right;
+				width: 65%;
+
+				@include device-width(4) {
+					width: 100%;
+				}
+				
 			}
 
 			.accordion-item {
@@ -722,7 +736,7 @@ body {
 			color: #393939;
 		}
 
-		.gform_button {
+		.gform_button, input[type=submit] {
 			height: 30px;
 			line-height: 1;
 			@include border-radius(0 3px 3px 0);			
@@ -735,6 +749,7 @@ body {
 			background-color: #0e386d;
 			@include filter-gradient(#0e386d, #0e386d, vertical);
 			@include background-image(linear-gradient(top,  #0e386d 0%,#042f66 22%,#042b60 51%,#05285b 86%,#0e386d 100%));
+			@include box-shadow(0px 0px 0px transparent inset);
 
 			&:hover {
 				background-color: #13458b;	

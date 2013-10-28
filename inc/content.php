@@ -14,7 +14,6 @@
 		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
 			<div class="images-bar">
 				<img class="scale" src="<?php the_sub_field("image"); ?>" alt="<?php the_sub_field("title"); ?>">
-
 				<?php 
 					$images = get_sub_field('images');
 					if( $images ): ?>
@@ -23,8 +22,10 @@
 			            <?php endforeach; ?>
 				<?php endif; ?>				
 			</div>
-			<h1><?php the_sub_field("title"); ?></h1>
-			<?php the_sub_field("img-content"); ?>
+			<div class="content-wrapper">
+				<h1><?php the_sub_field("title"); ?></h1>
+				<?php the_sub_field("img-content"); ?>
+			</div>
 		</div>
 
 	<?php elseif(get_row_layout() == "accordion"): ?>
