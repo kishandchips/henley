@@ -470,6 +470,13 @@ body {
 						}
 					}
 				}
+
+				&.gform_widget {
+					
+					input[type=submit] {
+						width: 100%;
+					}
+				}
 			}
 		}
 	}
@@ -689,6 +696,12 @@ body {
 			@include device-width(8) {
 				width: 70%;
 			}
+
+			ul {
+				li.gfield {
+					margin: 15px 0;
+				}
+			}
 		}
 
 		.gform_footer {
@@ -709,11 +722,25 @@ body {
 			color: #393939;
 		}
 
-		input[type=submit] {
+		.gform_button {
 			height: 30px;
 			line-height: 1;
-			@include border-radius(0 3px 3px 0);
-		}		
+			@include border-radius(0 3px 3px 0);			
+			width: 100%;
+			text-align: center;
+			font-size: 15px !important;
+			color: #FFF;
+		    @include border-radius(3px);
+		    border: 1px solid #08182c;
+			background-color: #0e386d;
+			@include filter-gradient(#0e386d, #0e386d, vertical);
+			@include background-image(linear-gradient(top,  #0e386d 0%,#042f66 22%,#042b60 51%,#05285b 86%,#0e386d 100%));
+
+			&:hover {
+				background-color: #13458b;	
+				background-image: none;		
+			}
+		}			
 
 		#gforms_confirmation_message, .validation_error {
 			padding-top: 40px;

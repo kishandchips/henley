@@ -46,7 +46,9 @@
 			$('#footer .mobile-navigation-btn').on('click', function() {
 				var navigation = $('#footer #menu-primary-footer');
 				navigation.slideToggle(200);
-			});			
+			});		
+
+			$("select").selecter();	
 
 			$.fn.simpleSlider = function(options) {
 						
