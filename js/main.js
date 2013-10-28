@@ -266,7 +266,12 @@
 	});
 	
 	$(window).scroll(function() {
-    if ($(this).scrollTop() < 500) {
+		var s = $(window).scrollTop(),
+	        d = $(document).height(),
+	        c = $(window).height();
+	        scrollPercent = (s / (d-c)) * 100;
+			// console.log(scrollPercent);		
+    if (scrollPercent < 70) {
         $("#slideupbox").slideUp();
     }
     else {
