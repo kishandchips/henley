@@ -618,30 +618,36 @@ h1.phone-number {
 }
 
 #call-now {
-	display: inline-block;
+	min-height: 80px;
+	line-height: 80px;
+	width: 100%;
 	background: #ededed;
-	padding: 20px;
-	-moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box; 
+	padding: 0 20px;
+	@include box-sizing(border-box);
+
+	@include device-width(5) {
+		line-height: 40px;
+	}
+
 	h1 {
 		font-size: 18px !important;
-		display: inline-block;
 		margin: 0;
+		@include inline-block;
 	}
 	a.button {
-		display: inline-block;
 		margin: 0 0 0 15px;
 		padding: 10px;
 	}
 	p {
-		display: inline-block;
 		margin: 0;
 		font-size: 11px;
+		@include inline-block;
 	}
+	
 	p.number {
 		font-size: 18px;
 		color: #000;
+		@include inline-block;
 	}
 }
 
@@ -995,7 +1001,7 @@ h1.phone-number {
 
 		.gform_button, input[type=submit] {
 			height: 30px;
-			line-height: 1;
+			line-height: 0.8;
 			@include border-radius(0 3px 3px 0);			
 			width: 100%;
 			text-align: center;
