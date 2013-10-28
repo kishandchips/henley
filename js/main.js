@@ -7,7 +7,6 @@
 				$('.scroller').each(function(){
 					var scroller = $(this);
 					var options = {};
-					var image = $('img.first', this);
 
 					if(scroller.hasClass('gallery-scroller') || scroller.data('scroll-all') === true) options.scrollAll = true;
 					if(scroller.data('auto-scroll') === true ) options.autoScroll = true;
@@ -29,7 +28,7 @@
 				$(this).toggleClass('open');
 			});
 
-			$('#content h1:first').addClass('first');	
+			$('#content h1:first, #content .row:first').addClass('first');	
 
 			$('a[href^=#].scroll-to-btn').click(function(){
 				var target = $($(this).attr('href'));
