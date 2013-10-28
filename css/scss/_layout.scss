@@ -353,7 +353,7 @@ body {
 				@include device-width(4) {
 					width: 100%;
 				}
-				
+
 			}
 
 			.accordion-item {
@@ -505,6 +505,246 @@ body {
 		}
 	}
 }
+#faq {
+
+	.row.first {
+		margin-bottom: 35px;
+	}
+
+ 	#content .row.accordion {
+		border-top: none ;
+		margin-bottom: 35px;
+
+		h1 {
+			font-size: 14px;
+			font-weight: normal;
+		}
+
+		.accordion-item {
+			position: relative;
+
+			&:after {
+				content: "";
+				display: block;
+				width: 11px;
+				height: 8px;
+				background: url('/wp-content/themes/henley/images/misc/faq-arrow.png');
+				position: absolute;
+				right: 25px;
+				top: 25px;		
+			}	
+
+			&.open:after {
+				content: "";
+				display: block;
+				width: 11px;
+				height: 8px;
+				background: url('/wp-content/themes/henley/images/misc/faq-arrow.png');
+				position: absolute;
+				right: 25px;
+				top: 25px;		
+			}					
+		}
+		
+		
+		.accordion-item.open h2 {
+			background: #D7D7D7;
+		}
+
+		.accordion-item h2 {
+			background: #ededed;
+			padding: 20px;
+			margin: 0.83em 0 0 0;
+			box-shadow: 0 2px 2px #bfbfbf;
+
+			&:hover {
+				cursor: pointer;
+				background: #D7D7D7;
+
+				a {
+					text-decoration: none;
+				}
+			}
+
+			a {
+				color: #616161 !important;
+				font-size: 13px !important;
+			}
+		}
+		
+		.accordion-item .content {
+			background: #ededed;
+			margin-top: 0;
+			padding: 20px;
+			font-style: italic;
+		}
+	}
+}
+
+#call-box {
+	@extend .clearfix;
+
+	.button{
+		margin: 30px 0 0 0;
+		display: inline-block;
+		@extend .right;
+	}
+	p {
+		margin: 0 !important;
+	}
+	p b {
+		font-size: 12px;
+		font-weight: bold;
+		color: #12108d;
+	}	
+}
+
+h1.phone-number {
+	font-size: 30px;
+	margin: 0;
+}
+
+#mba-sidebar {
+	@extend .clearfix;
+
+	img {
+		width: 100%;
+	}
+	a.button {
+		display: inline-block;
+		margin: 15px 0 0 0;
+		@extend .right;
+	}
+}
+
+#call-now {
+	display: inline-block;
+	background: #ededed;
+	padding: 20px;
+	-moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box; 
+	h1 {
+		font-size: 18px !important;
+		display: inline-block;
+		margin: 0;
+	}
+	a.button {
+		display: inline-block;
+		margin: 0 0 0 15px;
+		padding: 10px;
+	}
+	p {
+		display: inline-block;
+		margin: 0;
+		font-size: 11px;
+	}
+	p.number {
+		font-size: 18px;
+		color: #000;
+	}
+}
+
+#contact-form {
+	max-width: 580px;
+	li {
+		background: none !important;
+	}
+	label {
+		background: #fbfbfb;
+		color: #666;
+		text-align: right;
+		padding: 20px;
+		margin: none;
+		max-width: 140px !important;
+		border-right: 1px solid #dadada;
+	}
+	.comment label {
+		height: 200px;
+	}
+	.gfield {
+		border: 1px solid #d6d6d6;
+		padding-left: 0 !important;
+		margin: -1px 0 0 0 !important;
+	}
+	input[type="text"] {
+		width: 230px;
+		padding: 10px;
+		margin: 16px;
+	}
+	select {
+		margin: 20px 15px !important;
+	}
+	input[type="submit"] {
+		max-width: 157px;
+		float: right;
+	}
+	textarea {
+		margin: 20px;
+		max-width: 280px;
+		padding: 10px;
+	}
+}
+
+#slideupbox {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: #fff;
+	padding: 20px;
+	width: 250px;
+	z-index: 9999;
+	box-shadow: 0 0 5px #174686;
+
+	ul {
+		padding: 0;
+
+		li {
+			line-height: 1.5;
+			padding-left: 15px;
+			background: url('../images/misc/list_bullet.jpg') left 2px no-repeat;
+			display: block;
+			overflow: hidden;
+			color: #333;
+			margin: 2px 0;			
+		}
+	}
+
+	.gform_body {
+
+		ul {
+			padding: 0;
+			margin: 0;
+
+			li {
+				background: none;
+				padding: 0;
+			}
+		}
+	}
+
+	.close-link {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+	}
+	&.hide {
+		display: none !important;
+	}
+}
+
+#popup-overlay {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 200px;
+	margin-left: -150px;
+	margin-top: -100px;
+}
+
 
 		
 #footer {

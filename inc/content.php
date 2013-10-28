@@ -56,18 +56,20 @@
 			                    <img class="scale" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 			            <?php endforeach; ?>
 				<?php endif; ?>				
-			</div>			
-			<h1><?php the_sub_field("title"); ?></h1>
-			<?php if(get_sub_field('items')): $i = 0; ?>
-				<?php while(has_sub_field('items')): $i++; ?>	
-					<div class="accordion-item" data-id="<?php echo $i; ?>">
-						<h2><a class="trigger" data-id="<?php echo $i; ?>"><?php the_sub_field("title"); ?></a></h2>
-						<div class="content" data-id="<?php echo $i; ?>">
-							<p><?php the_sub_field('content'); ?></p>
-						</div>
-					</div>		 					
-				<?php endwhile; ?>
-			<?php endif; ?>
+			</div>	
+			<div class="content-wrapper">		
+				<h1><?php the_sub_field("title"); ?></h1>
+				<?php if(get_sub_field('items')): $i = 0; ?>
+					<?php while(has_sub_field('items')): $i++; ?>	
+						<div class="accordion-item" data-id="<?php echo $i; ?>">
+							<h2><a class="trigger" data-id="<?php echo $i; ?>"><?php the_sub_field("title"); ?></a></h2>
+							<div class="content" data-id="<?php echo $i; ?>">
+								<p><?php the_sub_field('content'); ?></p>
+							</div>
+						</div>		 					
+					<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
 		</div>
 
 	<?php elseif(get_row_layout() == "columns"): ?>		
