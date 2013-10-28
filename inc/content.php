@@ -1,4 +1,5 @@
-<?php while(has_sub_field("content")): ?>
+<?php $e = 0; ?>
+<?php while(has_sub_field("content")): $e++; ?>
 <?php $layout = get_row_layout(); ?>
 
 	<?php if(get_row_layout() == "content"): ?>
@@ -28,7 +29,7 @@
 
 	<?php elseif(get_row_layout() == "accordion"): ?>
  
-		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
+		<div id="acc-<?php echo $e; ?>" class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
 			<h1><?php the_sub_field("title"); ?></h1>
 			<?php if(get_sub_field('items')): $i = 0; ?>
 				<?php while(has_sub_field('items')): $i++; ?>	
@@ -44,7 +45,7 @@
  
 	<?php elseif(get_row_layout() == "accordion_image"): // layout: Featured Posts ?>
 
-		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
+		<div id="acc-<?php echo $e; ?>" class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
 			<div class="images-bar">
 				<img class="scale" src="<?php the_sub_field("image"); ?>" alt="<?php the_sub_field("title"); ?>">
 				<?php 

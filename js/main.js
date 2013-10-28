@@ -24,9 +24,8 @@
 			}	
 
 			$('.accordion-item').on('click', function() {
-				var id = $(this).data('id'),
-					item = $('.accordion .content[data-id='+id+']');
-				item.slideToggle(300);
+				var id = $(this).data('id');
+				$('.content', this).slideToggle(300);
 				$(this).toggleClass('open');
 			});
 
