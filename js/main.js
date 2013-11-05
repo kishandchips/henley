@@ -7,7 +7,6 @@
 				$('.scroller').each(function(){
 					var scroller = $(this);
 					var options = {};
-					var image = $('img.first', this);
 
 					if(scroller.hasClass('gallery-scroller') || scroller.data('scroll-all') === true) options.scrollAll = true;
 					if(scroller.data('auto-scroll') === true ) options.autoScroll = true;
@@ -24,13 +23,12 @@
 			}	
 
 			$('.accordion-item').on('click', function() {
-				var id = $(this).data('id'),
-					item = $('.accordion .content[data-id='+id+']');
-				item.slideToggle(300);
+				var id = $(this).data('id');
+				$('.content', this).slideToggle(300);
 				$(this).toggleClass('open');
 			});
 
-			$('#content h1:first').addClass('first');	
+			$('#content h1:first, #content .row:first').addClass('first');	
 
 			$('a[href^=#].scroll-to-btn').click(function(){
 				var target = $($(this).attr('href'));
@@ -47,7 +45,9 @@
 			$('#footer .mobile-navigation-btn').on('click', function() {
 				var navigation = $('#footer #menu-primary-footer');
 				navigation.slideToggle(200);
-			});			
+			});		
+
+			$("select").selecter();	
 
 			$.fn.simpleSlider = function(options) {
 						
@@ -257,21 +257,29 @@
 		main.loaded();
 		main.equalHeight();	
 		main.resize();
-		
-		// if (empty($_COOKIE['first_time'])) {
-		//	show_welcome_message();
-		//	setcookie("first_time", 1, time()+157680000);  /* expire in 5 years */
-		// }
-		
 	});
 	
 	$(window).scroll(function() {
-    if ($(this).scrollTop() < 500) {
+		var s = $(window).scrollTop(),
+	        d = $(document).height(),
+	        c = $(window).height();
+	        scrollPercent = (s / (d-c)) * 100;
+			// console.log(scrollPercent);		
+    if (scrollPercent < 70) {
         $("#slideupbox").slideUp();
     }
     else {
        	 $("#slideupbox").slideDown();
 		}
+	});
+	
+	$(window).resize(function() {
+	  if ($(window).width() < 800) {
+	     $("#slideupbox").hide();
+	  }
+	 else {
+	     
+	  }
 	});
 	
 	$(function() {
@@ -281,5 +289,13 @@
 			return false;
 		});
 	});
+	
+	(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 	
 })(jQuery);

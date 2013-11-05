@@ -7,7 +7,7 @@
  */
 get_header(); ?>
 
-<div id="page" class="container">
+<div id="page" class="container alumni">
 	<?php while ( have_posts() ) : the_post(); ?>
 	<div id="content" class="break-on-mobile">
 		<div id="alumni">

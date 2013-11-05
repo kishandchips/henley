@@ -116,6 +116,34 @@ if(!function_exists('set_custom_post_types')) {
 	   		)
 	   	);	
 
+		$popup = new Custom_Post_Type( 'Popup', 
+	 		array(
+	 			'rewrite' => array( 'with_front' => false, 'slug' => 'popup' ),
+	 			'capability_type' => 'post',
+	 		 	'publicly_queryable' => true,
+	   			'has_archive' => true, 
+	    		'hierarchical' => true,
+	    		'exclude_from_search' => false,
+	    		'menu_position' => null,
+	    		'supports' => array('title', 'thumbnail', 'editor'),
+	    		'plural' => 'Slideup Box'
+	   		)
+	   	);
+	   	
+	   	$events = new Custom_Post_Type( 'Event', 
+	 		array(
+	 			'rewrite' => array( 'with_front' => false, 'slug' => 'event' ),
+	 			'capability_type' => 'post',
+	 		 	'publicly_queryable' => true,
+	   			'has_archive' => true, 
+	    		'hierarchical' => true,
+	    		'exclude_from_search' => false,
+	    		'menu_position' => null,
+	    		'supports' => array('title', 'thumbnail', 'editor'),
+	    		'plural' => 'Events'
+	   		)
+	   	);			   	
+
 	 	// global $wp_rewrite;
 		// $wp_rewrite->flush_rules();
 }}

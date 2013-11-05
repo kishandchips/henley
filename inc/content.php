@@ -1,4 +1,5 @@
-<?php while(has_sub_field("content")): ?>
+<?php $e = 0; ?>
+<?php while(has_sub_field("content")): $e++; ?>
 <?php $layout = get_row_layout(); ?>
 
 	<?php if(get_row_layout() == "content"): ?>
@@ -13,7 +14,6 @@
 		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
 			<div class="images-bar">
 				<img class="scale" src="<?php the_sub_field("image"); ?>" alt="<?php the_sub_field("title"); ?>">
-
 				<?php 
 					$images = get_sub_field('images');
 					if( $images ): ?>
@@ -22,13 +22,15 @@
 			            <?php endforeach; ?>
 				<?php endif; ?>				
 			</div>
-			<h1><?php the_sub_field("title"); ?></h1>
-			<?php the_sub_field("img-content"); ?>
+			<div class="content-wrapper">
+				<h1><?php the_sub_field("title"); ?></h1>
+				<?php the_sub_field("img-content"); ?>
+			</div>
 		</div>
 
 	<?php elseif(get_row_layout() == "accordion"): ?>
  
-		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
+		<div id="acc-<?php echo $e; ?>" class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
 			<h1><?php the_sub_field("title"); ?></h1>
 			<?php if(get_sub_field('items')): $i = 0; ?>
 				<?php while(has_sub_field('items')): $i++; ?>	
@@ -42,9 +44,9 @@
 			<?php endif; ?>
 		</div>	
  
-	<?php elseif(get_row_layout() == "accordion_image"): // layout: Featured Posts ?>
+	<?php elseif(get_row_layout() == "accordion_image"): ?>
 
-		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
+		<div id="acc-<?php echo $e; ?>" class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
 			<div class="images-bar">
 				<img class="scale" src="<?php the_sub_field("image"); ?>" alt="<?php the_sub_field("title"); ?>">
 				<?php 
@@ -54,21 +56,36 @@
 			                    <img class="scale" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 			            <?php endforeach; ?>
 				<?php endif; ?>				
-			</div>			
-			<h1><?php the_sub_field("title"); ?></h1>
-			<?php if(get_sub_field('items')): $i = 0; ?>
-				<?php while(has_sub_field('items')): $i++; ?>	
-					<div class="accordion-item" data-id="<?php echo $i; ?>">
-						<h2><a class="trigger" data-id="<?php echo $i; ?>"><?php the_sub_field("title"); ?></a></h2>
-						<div class="content" data-id="<?php echo $i; ?>">
-							<p><?php the_sub_field('content'); ?></p>
-						</div>
-					</div>		 					
-				<?php endwhile; ?>
-			<?php endif; ?>
+			</div>	
+			<div class="content-wrapper">		
+				<h1><?php the_sub_field("title"); ?></h1>
+				<?php if(get_sub_field('items')): $i = 0; ?>
+					<?php while(has_sub_field('items')): $i++; ?>	
+						<div class="accordion-item" data-id="<?php echo $i; ?>">
+							<h2><a class="trigger" data-id="<?php echo $i; ?>"><?php the_sub_field("title"); ?></a></h2>
+							<div class="content" data-id="<?php echo $i; ?>">
+								<p><?php the_sub_field('content'); ?></p>
+							</div>
+						</div>		 					
+					<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
 		</div>
 
+	<?php elseif(get_row_layout() == "ajax_content"): ?>	
+	
+		<div id="ajax-content" style="<?php the_sub_field("css"); ?>">
+
+		</div>	
+		<script>
+			var myUrl = '<?php the_sub_field("ajax-content"); ?>' + " <?php the_sub_field("selector"); ?>";
+			jQuery("#ajax-content").load(myUrl);
+			return false;
+		</script>
+
 	<?php elseif(get_row_layout() == "columns"): ?>		
+
+	
 
 	<div class="columns clearfix">
 		<?php $total_columns = count( get_sub_field('column-content')); ?>

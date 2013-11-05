@@ -272,7 +272,7 @@ body {
 
 		.row {
 
-			ul {
+			ul, {
 				li {
 					line-height: 1.5;
 					padding-left: 15px;
@@ -335,11 +335,25 @@ body {
 			.images-bar {
 				float:left;
 				width: 32%;
-				margin-right: 30px;
+				margin-right: 3%;
 
 				img {
 					margin-bottom: 6px;
 				}
+
+				@include device-width(4) {
+					width: 100%;
+				}
+			}
+
+			.content-wrapper {
+				float: right;
+				width: 65%;
+
+				@include device-width(4) {
+					width: 100%;
+				}
+
 			}
 
 			.accordion-item {
@@ -432,13 +446,7 @@ body {
 			li.widget {
 				border: 1px solid #333;
 				padding: 20px;
-<<<<<<< HEAD
-<<<<<<< HEAD
 				margin-bottom: 20px;
-=======
->>>>>>> b78d48466dbd39bafcf24b6870a173902f46a9e1
-=======
->>>>>>> b78d48466dbd39bafcf24b6870a173902f46a9e1
 
 				.gform_wrapper {
 
@@ -476,6 +484,13 @@ body {
 						}
 					}
 				}
+
+				&.gform_widget {
+
+					input[type=submit] {
+						width: 100%;
+					}
+				}
 			}
 		}
 	}
@@ -490,6 +505,269 @@ body {
 		}
 	}
 }
+#faq {
+
+	.row.first {
+		margin-bottom: 35px;
+	}
+
+ 	#content .row.accordion {
+		border-top: none ;
+		margin-bottom: 35px;
+
+		h1 {
+			font-size: 14px;
+			font-weight: normal;
+		}
+
+		.accordion-item {
+			position: relative;
+
+			&:after {
+				content: "";
+				display: block;
+				width: 11px;
+				height: 8px;
+				background: url('/wp-content/themes/henley/images/misc/faq-arrow.png');
+				position: absolute;
+				right: 25px;
+				top: 25px;		
+			}	
+
+			&.open:after {
+				content: "";
+				display: block;
+				width: 11px;
+				height: 8px;
+				background: url('/wp-content/themes/henley/images/misc/faq-arrow.png');
+				position: absolute;
+				right: 25px;
+				top: 25px;		
+			}					
+		}
+		
+		
+		.accordion-item.open h2 {
+			background: #D7D7D7;
+		}
+
+		.accordion-item h2 {
+			background: #ededed;
+			padding: 20px;
+			margin: 0.83em 0 0 0;
+			box-shadow: 0 2px 2px #bfbfbf;
+
+			&:hover {
+				cursor: pointer;
+				background: #D7D7D7;
+
+				a {
+					text-decoration: none;
+				}
+			}
+
+			a {
+				color: #616161 !important;
+				font-size: 13px !important;
+			}
+		}
+		
+		.accordion-item .content {
+			background: #ededed;
+			margin-top: 0;
+			padding: 20px;
+			font-style: italic;
+		}
+	}
+}
+
+#call-box {
+	@extend .clearfix;
+
+	.button{
+		margin: 30px 0 0 0;
+		display: inline-block;
+		@extend .right;
+	}
+	p {
+		margin: 0 !important;
+	}
+	p b {
+		font-size: 12px;
+		font-weight: bold;
+		color: #12108d;
+	}	
+}
+
+h1.phone-number {
+	font-size: 30px;
+	margin: 0;
+}
+
+#mba-sidebar {
+	@extend .clearfix;
+
+	img {
+		width: 100%;
+	}
+	a.button {
+		display: inline-block;
+		margin: 15px 0 0 0;
+		@extend .right;
+	}
+}
+
+#call-now {
+	min-height: 80px;
+	line-height: 80px;
+	width: 100%;
+	background: #ededed;
+	padding: 0 20px;
+	@include box-sizing(border-box);
+
+	@include device-width(5) {
+		line-height: 40px;
+	}
+
+	h1 {
+		font-size: 18px !important;
+		margin: 0;
+		@include inline-block;
+	}
+	a.button {
+		margin: 0 0 0 15px;
+		padding: 10px;
+	}
+	p {
+		margin: 0;
+		font-size: 11px;
+		@include inline-block;
+	}
+	
+	p.number {
+		font-size: 18px;
+		color: #000;
+		@include inline-block;
+	}
+}
+
+#contact-form {
+	max-width: 580px;
+
+	ul {
+		border: 1px solid #d6d6d6;
+		@extend .clearfix;
+
+		li {
+			background: none !important;
+			overflow: visible !important;
+		}
+	}
+
+
+	label {
+		background: #fbfbfb;
+		color: #666;
+		text-align: right;
+		padding: 4% 4% 4% 0;
+		float: left;
+		width: 30%;
+		border-right: 1px solid #dadada;
+		margin: 0;
+	}
+
+	.ginput_container {
+		float: right;
+		width: 57%;
+		padding: 3%;
+	}
+
+	.comment label {
+		height: 200px;
+	}
+
+	.gfield {
+		border: 1px solid #d6d6d6;
+		padding-left: 0 !important;
+		margin: -1px 0 0 0 !important;
+	}
+	input[type="text"] {
+		padding: 10px;
+		width: 100%;
+	}
+	select {
+		margin: 20px 15px !important;
+	}
+	input[type="submit"] {
+		max-width: 157px;
+		float: right;
+	}
+	textarea {
+		padding: 2%;
+		width: 96%;
+		border: 1px solid #aaaaaa;
+	}
+}
+
+#slideupbox {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: #fff;
+	padding: 20px;
+	width: 250px;
+	z-index: 9999;
+	box-shadow: 0 0 5px #174686;
+
+	ul {
+		padding: 0;
+
+		li {
+			line-height: 1.5;
+			padding-left: 15px;
+			background: url('../images/misc/list_bullet.jpg') left 2px no-repeat;
+			display: block;
+			overflow: hidden;
+			color: #333;
+			margin: 2px 0;			
+		}
+	}
+
+	.gform_body {
+
+		ul {
+			padding: 0;
+			margin: 0;
+
+			li {
+				background: none;
+				padding: 0;
+			}
+		}
+	}
+
+	.close-link {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+	}
+	&.hide {
+		display: none !important;
+	}
+}
+
+#popup-overlay {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 200px;
+	margin-left: -150px;
+	margin-top: -100px;
+}
+
 
 		
 #footer {
@@ -695,6 +973,12 @@ body {
 			@include device-width(8) {
 				width: 70%;
 			}
+
+			ul {
+				li.gfield {
+					margin: 15px 0;
+				}
+			}
 		}
 
 		.gform_footer {
@@ -715,11 +999,26 @@ body {
 			color: #393939;
 		}
 
-		input[type=submit] {
+		.gform_button, input[type=submit] {
 			height: 30px;
-			line-height: 1;
-			@include border-radius(0 3px 3px 0);
-		}		
+			line-height: 0.8;
+			@include border-radius(0 3px 3px 0);			
+			width: 100%;
+			text-align: center;
+			font-size: 15px !important;
+			color: #FFF;
+		    @include border-radius(3px);
+		    border: 1px solid #08182c;
+			background-color: #0e386d;
+			@include filter-gradient(#0e386d, #0e386d, vertical);
+			@include background-image(linear-gradient(top,  #0e386d 0%,#042f66 22%,#042b60 51%,#05285b 86%,#0e386d 100%));
+			@include box-shadow(0px 0px 0px transparent inset);
+
+			&:hover {
+				background-color: #13458b;	
+				background-image: none;		
+			}
+		}			
 
 		#gforms_confirmation_message, .validation_error {
 			padding-top: 40px;
