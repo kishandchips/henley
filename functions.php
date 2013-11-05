@@ -128,6 +128,7 @@ if(!function_exists('set_custom_post_types')) {
 	    		'supports' => array('title', 'thumbnail', 'editor'),
 	    		'plural' => 'Slideup Box'
 	   		)
+<<<<<<< HEAD
 	   	);
 	   	
 	   	$events = new Custom_Post_Type( 'Event', 
@@ -143,6 +144,9 @@ if(!function_exists('set_custom_post_types')) {
 	    		'plural' => 'Events'
 	   		)
 	   	);			   	
+=======
+	   	);		   	
+>>>>>>> d288a03fe611ed65dac2897a91b172b69f7cf99e
 
 	 	// global $wp_rewrite;
 		// $wp_rewrite->flush_rules();
