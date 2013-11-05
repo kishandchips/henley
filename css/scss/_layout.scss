@@ -394,11 +394,52 @@ body {
 
 				@include device-width(4) {
 					width: 100%;
+
+					img {
+						margin: 20px 0;
+					}
+
+					.alignright, .alignleft {
+						float: none;
+						max-width: 100%;
+						height: auto;
+						display: block;
+					}
 				}
 
 			}
 
+			.subtitle {
+				@include font-size(22);
+				border-bottom: 1px solid #174686;
+				margin: 30px 0 30px;
+			}
+
 			.accordion-item {
+				position: relative;
+				padding-left: 25px;
+
+				&:after {
+					content: "";
+					display: block;
+					width: 11px;
+					height: 8px;
+					background: url('../images/misc/faq-arrow.png');
+					position: absolute;
+					left: 0px;
+					top: 5px;		
+				}	
+
+				&.open:after {
+					content: "";
+					display: block;
+					width: 11px;
+					height: 8px;
+					background: url('../images/misc/faq-arrow_up.png');
+					position: absolute;
+					left: 0px;
+					top: 5px;		
+				}					
 
 				.trigger {
 					@include font-size(18);
@@ -410,7 +451,11 @@ body {
 				}
 
 				.content {
-					display: none;	
+					display: none;
+
+					@include device-width(5) {
+						display: block;
+					}
 
 					p {
 						margin: 0;
@@ -567,6 +612,7 @@ body {
 		}
 	}
 }
+
 #faq {
 
 	.row.first {
@@ -580,34 +626,24 @@ body {
 		h1 {
 			font-size: 14px;
 			font-weight: normal;
-		}
+		}	
 
 		.accordion-item {
 			position: relative;
+			padding: 0;
 
 			&:after {
-				content: "";
-				display: block;
-				width: 11px;
-				height: 8px;
-				background: url('/wp-content/themes/henley/images/misc/faq-arrow.png');
-				position: absolute;
+				left: inherit;
 				right: 25px;
 				top: 25px;		
 			}	
 
 			&.open:after {
-				content: "";
-				display: block;
-				width: 11px;
-				height: 8px;
-				background: url('/wp-content/themes/henley/images/misc/faq-arrow.png');
-				position: absolute;
+				left: inherit;
 				right: 25px;
 				top: 25px;		
-			}					
-		}
-		
+			}
+		}			
 		
 		.accordion-item.open h2 {
 			background: #D7D7D7;

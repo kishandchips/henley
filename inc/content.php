@@ -13,7 +13,9 @@
  
 		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
 			<div class="images-bar">
-				<img class="scale" src="<?php the_sub_field("image"); ?>" alt="<?php the_sub_field("title"); ?>">
+				
+				<img class="scale <?php if( get_sub_field('first-image') ):?>not-chosen<?php endif; ?>" src="<?php the_sub_field("image"); ?>" alt="<?php the_sub_field("title"); ?>">
+
 				<?php 
 					$images = get_sub_field('images');
 					if( $images ): ?>
@@ -33,13 +35,17 @@
 		<div id="acc-<?php echo $e; ?>" class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
 			<h1><?php the_sub_field("title"); ?></h1>
 			<?php if(get_sub_field('items')): $i = 0; ?>
-				<?php while(has_sub_field('items')): $i++; ?>	
-					<div class="accordion-item" data-id="<?php echo $i; ?>">
-						<h2><a class="trigger" data-id="<?php echo $i; ?>"><?php the_sub_field("title"); ?></a></h2>
-						<div class="content" data-id="<?php echo $i; ?>">
-							<p><?php the_sub_field('content'); ?></p>
+				<?php while(has_sub_field('items')): $i++; ?>
+					<?php if( get_sub_field('subtitle') ):?>
+						<h2 class="subtitle"><?php the_sub_field("title"); ?></h2>			
+					<?php else: ?>				
+						<div class="accordion-item" data-id="<?php echo $i; ?>">
+							<h2><a class="trigger" data-id="<?php echo $i; ?>"><?php the_sub_field("title"); ?></a></h2>
+							<div class="content" data-id="<?php echo $i; ?>">
+								<p><?php the_sub_field('content'); ?></p>
+							</div>
 						</div>
-					</div>		 					
+					<?php endif; ?>		 					
 				<?php endwhile; ?>
 			<?php endif; ?>
 		</div>	
@@ -61,12 +67,16 @@
 				<h1><?php the_sub_field("title"); ?></h1>
 				<?php if(get_sub_field('items')): $i = 0; ?>
 					<?php while(has_sub_field('items')): $i++; ?>	
-						<div class="accordion-item" data-id="<?php echo $i; ?>">
-							<h2><a class="trigger" data-id="<?php echo $i; ?>"><?php the_sub_field("title"); ?></a></h2>
-							<div class="content" data-id="<?php echo $i; ?>">
-								<p><?php the_sub_field('content'); ?></p>
+						<?php if( get_sub_field('subtitle') ):?>
+							<h2 class="subtitle"><?php the_sub_field("title"); ?></h2>			
+						<?php else: ?>
+							<div class="accordion-item" data-id="<?php echo $i; ?>">
+								<h2><a class="trigger" data-id="<?php echo $i; ?>"><?php the_sub_field("title"); ?></a></h2>
+								<div class="content" data-id="<?php echo $i; ?>">
+									<p><?php the_sub_field('content'); ?></p>
+								</div>
 							</div>
-						</div>		 					
+						<?php endif; ?>
 					<?php endwhile; ?>
 				<?php endif; ?>
 			</div>

@@ -230,7 +230,7 @@
 						if (scrollPercent > 70) {
 				           	slideupbox.slideDown();
 				    	}					
-					}, 5000);			    			
+					}, 2000);			    			
 				}
 			}
 
@@ -288,11 +288,13 @@
 	$(window).load(function(){
 		main.loaded();
 		main.equalHeight();	
-		main.resize();
+		main.resize();	
 	});
 	
 	$(window).scroll(function() {
-		main.slideUpBox();
+		if ($(window).width() > 1000) {
+		    main.slideUpBox();
+		}	
 	});
 	
 	$(window).resize(function() {
