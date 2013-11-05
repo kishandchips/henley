@@ -18,7 +18,7 @@
 					$images = get_sub_field('images');
 					if( $images ): ?>
 			            <?php foreach( $images as $image ): ?>
-			                    <img class="scale"  src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+			                    <img class="scale not-chosen"  src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 			            <?php endforeach; ?>
 				<?php endif; ?>				
 			</div>
@@ -53,7 +53,7 @@
 					$images = get_sub_field('images');
 					if( $images ): ?>
 			            <?php foreach( $images as $image ): ?>
-			                    <img class="scale" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+			                    <img class="scale not-chosen" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 			            <?php endforeach; ?>
 				<?php endif; ?>				
 			</div>	

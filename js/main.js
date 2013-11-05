@@ -213,6 +213,36 @@
 		    }
 		},
 
+		slideUpBox: function(){
+			var s = $(window).scrollTop(),
+		        d = $(document).height(),
+		        c = $(window).height();
+		        scrollPercent = (s / (d-c)) * 100;
+
+			var slideupbox = $("#slideupbox");
+
+			if ( $( "#slideupbox" ).is( ".slideup" ) ) {
+
+			    if (scrollPercent < 70) {
+			        slideupbox.slideUp();
+			    }
+			    else {
+					setTimeout(function() {
+					   	slideupbox.slideDown();
+					}, 5000);			    			
+				}
+
+			}
+
+
+
+
+			$('#slideupbox .close-link').click(function() {
+				$('#slideupbox').slideUp().addClass('hide');
+				return false;
+			});			
+		},
+
 		equalHeight: function(){
 			if($('.equal-height').length !== 0){
 		
@@ -265,17 +295,7 @@
 	});
 	
 	$(window).scroll(function() {
-		var s = $(window).scrollTop(),
-	        d = $(document).height(),
-	        c = $(window).height();
-	        scrollPercent = (s / (d-c)) * 100;
-			// console.log(scrollPercent);		
-	    if (scrollPercent < 70) {
-	        $("#slideupbox").slideUp();
-	    }
-	    else {
-	       	$("#slideupbox").slideDown();
-		}
+		main.slideUpBox();
 	});
 	
 	$(window).resize(function() {
@@ -283,21 +303,5 @@
 			$("#slideupbox").hide();
 		}
 	});
-	
-	$(function() {
-		
-		$('#slideupbox .close-link').click(function() {
-			$('#slideupbox').slideUp().addClass('hide');
-			return false;
-		});
-	});
-	
-	// function(d, s, id) {
-	// 	var js, fjs = d.getElementsByTagName(s)[0];
-	// 	if (d.getElementById(id)) return;
-	// 	js = d.createElement(s); js.id = id;
-	// 	js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-	// 	fjs.parentNode.insertBefore(js, fjs);
-	// }(document, 'script', 'facebook-jssdk'));
 	
 })(jQuery);

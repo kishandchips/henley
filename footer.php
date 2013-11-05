@@ -1,6 +1,6 @@
 	</div><!-- #main -->
 	<?php while (have_posts()) : the_post(); ?>
-	        <div id="slideupbox">
+	        <div id="slideupbox" <?php if( get_field('slideup_box')): ?>class='slideup'<?php endif; ?>>
 	        	<a href="#" class="close-link">x</a>
 				<p><?php the_field('slideup_box_content', 'option'); ?></p>
 			</div>
@@ -28,6 +28,12 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 <div id="fb-root"></div>
-<?php wp_footer(); ?>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=579639135402354";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
