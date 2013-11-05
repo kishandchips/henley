@@ -28,6 +28,11 @@
 				$(this).toggleClass('open');
 			});
 
+			$(".mobile-category select").change(function() {
+				console.log('change');
+			  window.location = $(this).find("option:selected").val();
+			});			
+
 			$('#content h1:first, #content .row:first').addClass('first');	
 
 			$('a[href^=#].scroll-to-btn').click(function(){

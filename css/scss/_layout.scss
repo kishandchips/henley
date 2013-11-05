@@ -609,11 +609,42 @@ body {
 #events {
 
 	.categories {
+		margin-bottom: 50px;
 
-		.button {
-			float: left;
-			margin: 5px;
+		.category {
+
+			@include device-width(5) {
+				display: none;
+			}
+
+			ul {
+				padding: 0;
+			}
+
+			.button {
+				float: left;
+				margin: 5px;
+
+				@include device-width(8) {
+					font-size: 12px !important;
+					padding: 9px 13px;
+				}
+			}
+
+			.current {
+				.button {
+					@extend .button:hover;
+				}
+			}
 		}
+
+		.mobile-category {
+			display: none;
+
+			@include device-width(5) {
+				display: block;
+			}		
+		}		
 	}
 
 	.row {
@@ -1125,6 +1156,27 @@ body {
 				margin-top: 0px;
 				max-width: 100%;
 			}
+		}
+	}
+}
+
+#error {
+
+	.error {
+		width: 50%;
+		margin: 70px auto;
+		@include device-width(6) {
+			width: 100%;
+		}
+
+		@include font-size(20);
+
+		h1 {
+			@include font-size(40);
+		}
+
+		span {
+			@include font-size(30);
 		}
 	}
 }

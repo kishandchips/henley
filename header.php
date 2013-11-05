@@ -54,6 +54,8 @@ cc.initialise({
 <?php 
 	$curr_page = get_queried_page();
 	$curr_page_id = $curr_page->ID;
+
+	print_r($curr_page_id);
 ?>
 <body <?php body_class(); ?>>
 	<div id="page">

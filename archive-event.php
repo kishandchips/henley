@@ -20,6 +20,7 @@ get_header(); ?>
 <div id="page" class="container">
 	<div id="content" class="break-on-mobile">
 		<div class="categories clearfix">
+			<h2><?php _e('Categories: ') ?></h2>
 			<?php
                 $args = array(
                     'orderby'   => 'name',
@@ -30,9 +31,9 @@ get_header(); ?>
                 $terms = get_terms( 'event_category', $args );
             	$current_cat_id = get_queried_object()->term_id;
 			?>
-			<ul>
+			<ul class="category">
 				<li <?php if($current_cat_id == ''): ?>class='current'<?php endif; ?>>
-					<a class="button" href="<?php echo get_permalink(107); ?>"><?php _e('All Projects')?></a>
+					<a class="button" href="<?php echo get_permalink(107); ?>"><?php _e('All Events')?></a>
 				</li>
 				<?php foreach ($terms as $term) : ?>
 					<li <?php if($current_cat_id == $term->term_id): ?>class='current'<?php endif; ?>>
@@ -40,11 +41,21 @@ get_header(); ?>
 					</li>
 				 <?php endforeach; ?>
 			</ul>
-		</div>		
+			<div class="mobile-category clearfix">
+				<select> 			 	
+					<option value=""<?php if($current_cat_id == $term->term_id): ?>selected="selected'<?php endif; ?> ">Select</option> 
+					<option value="<?php echo get_permalink(107); ?>">All Events</option> 
+
+					<?php foreach ($terms as $term) : ?>
+					<option value="<?php echo get_term_link($term);?>"><?php echo $term->name; ?></option> 
+					<?php endforeach; ?>
+				</select> 
+		  	</div>				
+		</div>			
 	<?php while ( have_posts() ) : the_post(); ?>	
 		<div class="row content_image">
 			<div class="images-bar">
-				<img src="<?php the_field("event_image"); ?>" alt="" />
+				<img class="scale" src="<?php the_field("event_image"); ?>" alt="" />
 			</div>
 			<div class="content-wrapper">
 			<h1><?php the_title(); ?></h1>
