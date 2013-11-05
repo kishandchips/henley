@@ -221,21 +221,18 @@
 
 			var slideupbox = $("#slideupbox");
 
-			if ( $( "#slideupbox" ).is( ".slideup" ) ) {
-
+			if ( slideupbox.is( ".slideup" ) ) {
 			    if (scrollPercent < 70) {
 			        slideupbox.slideUp();
 			    }
 			    else {
 					setTimeout(function() {
-					   	slideupbox.slideDown();
+						if (scrollPercent > 70) {
+				           	slideupbox.slideDown();
+				    	}					
 					}, 5000);			    			
 				}
-
 			}
-
-
-
 
 			$('#slideupbox .close-link').click(function() {
 				$('#slideupbox').slideUp().addClass('hide');
