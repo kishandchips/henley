@@ -51,7 +51,10 @@ cc.initialise({
 <!-- End Cookie Consent plugin -->
 <script type="text/javascript" class="cc-onconsent-social" src="https://apis.google.com/js/plusone.js"></script>
 </head>
-
+<?php 
+	$curr_page = get_queried_page();
+	$curr_page_id = $curr_page->ID; 
+?>
 <body <?php body_class(); ?>>
 	<div id="page">
 		<header id="header" role="banner">
@@ -76,7 +79,7 @@ cc.initialise({
 			</div>		
 		</header><!-- #masthead -->
 
-		<?php if(get_field('slideshow')): ?>
+		<?php if(get_field('slideshow', $curr_page_id)): ?>
 		<div id="header-image" class="container clearfix">
 			<?php
 				$values = get_field('slideshow');

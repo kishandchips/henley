@@ -116,20 +116,6 @@ if(!function_exists('set_custom_post_types')) {
 	    		'plural' => 'News'
 	   		)
 	   	);	
-
-		$popup = new Custom_Post_Type( 'Popup', 
-	 		array(
-	 			'rewrite' => array( 'with_front' => false, 'slug' => 'popup' ),
-	 			'capability_type' => 'post',
-	 		 	'publicly_queryable' => true,
-	   			'has_archive' => true, 
-	    		'hierarchical' => true,
-	    		'exclude_from_search' => false,
-	    		'menu_position' => null,
-	    		'supports' => array('title', 'thumbnail', 'editor'),
-	    		'plural' => 'Slideup Box'
-	   		)
-	   	);
 	   	
 	   	$events = new Custom_Post_Type( 'Event', 
 	 		array(
@@ -148,7 +134,7 @@ if(!function_exists('set_custom_post_types')) {
 		$events->add_taxonomy("Event Category",
 			array(
 				'hierarchical' => true,
-				'rewrite' => array( 'with_front' => false, 'slug' => 'events/category' )
+				'rewrite' => array( 'with_front' => false, 'slug' => 'events-category' )
 			),
 			array(
 				'plural' => "Event Categories"
@@ -188,4 +174,28 @@ function custom_gform_enqueue_scripts($form, $is_ajax=false){
     });
     </script>
     <?php
+}
+
+if ( ! function_exists( 'get_queried_page' )) {
+	function get_queried_page(){
+		$curr_url = get_current_url();
+		$curr_uri = str_replace(get_bloginfo('url'), '', $curr_url);
+		$page = get_page_by_path($curr_uri);
+		if($page) return $page;
+		return null;
+	}
+}
+if ( ! function_exists( 'get_current_url' )) {
+	function get_current_url() {
+		$url = 'http';
+		if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') $url .= 's';
+			$url .= '://';
+
+		if ($_SERVER['SERVER_PORT'] != '80') {
+			$url .= $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+		} else {
+			$url .= $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+		}
+		return $url;
+	}
 }

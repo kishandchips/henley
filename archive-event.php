@@ -10,6 +10,7 @@
  * @package henley
  * @since henley 1.0
  */
+
 query_posts(array_merge($wp_query->query_vars, array(
 	'orderby' => 'menu_order',
 	'order' => 'ASC'
@@ -27,21 +28,18 @@ get_header(); ?>
                     'hide_empty'    => 1
                 );
                 $terms = get_terms( 'event_category', $args );
-                $current_cat_id = get_queried_object()->term_id;
+            	$current_cat_id = get_queried_object()->term_id;
 			?>
 			<ul>
-				<li>
-					<a <?php if($current_cat_id == ''): ?>class='current'<?php endif; ?> href="<?php echo get_permalink(1849); ?>"><?php _e('All Projects')?></a>
+				<li <?php if($current_cat_id == ''): ?>class='current'<?php endif; ?>>
+					<a class="button" href="<?php echo get_permalink(107); ?>"><?php _e('All Projects')?></a>
 				</li>
 				<?php foreach ($terms as $term) : ?>
-					<li>
-						<a <?php if($current_cat_id == $term->term_id): ?>class='current'<?php endif; ?> href="<?php echo get_term_link($term);?>"><?php echo $term->name; ?></a>
+					<li <?php if($current_cat_id == $term->term_id): ?>class='current'<?php endif; ?>>
+						<a class="button" href="<?php echo get_term_link($term);?>"><?php echo $term->name; ?></a>
 					</li>
 				 <?php endforeach; ?>
 			</ul>
-			<a class="link back-btn right floatbtn" href="<?php echo get_permalink(11); ?>" title="<?php _e('Back to Projects')?>">
-				<?php _e('Back to Projects')?>
-			</a>
 		</div>		
 	<?php while ( have_posts() ) : the_post(); ?>	
 		<div class="row content_image">
