@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<div id="error" >
+	<div id="error" class="container clearfix">
 		<div id="content">
 			<div class="row">
 				<div class="container inner">

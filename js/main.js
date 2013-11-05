@@ -265,21 +265,18 @@
 	        c = $(window).height();
 	        scrollPercent = (s / (d-c)) * 100;
 			// console.log(scrollPercent);		
-    if (scrollPercent < 70) {
-        $("#slideupbox").slideUp();
-    }
-    else {
-       	 $("#slideupbox").slideDown();
+	    if (scrollPercent < 70) {
+	        $("#slideupbox").slideUp();
+	    }
+	    else {
+	       	$("#slideupbox").slideDown();
 		}
 	});
 	
 	$(window).resize(function() {
-	  if ($(window).width() < 800) {
-	     $("#slideupbox").hide();
-	  }
-	 else {
-	     
-	  }
+		if ($(window).width() < 800) {
+			$("#slideupbox").hide();
+		}
 	});
 	
 	$(function() {
@@ -290,12 +287,12 @@
 		});
 	});
 	
-	(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+	// function(d, s, id) {
+	// 	var js, fjs = d.getElementsByTagName(s)[0];
+	// 	if (d.getElementById(id)) return;
+	// 	js = d.createElement(s); js.id = id;
+	// 	js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+	// 	fjs.parentNode.insertBefore(js, fjs);
+	// }(document, 'script', 'facebook-jssdk'));
 	
 })(jQuery);

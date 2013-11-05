@@ -15,7 +15,7 @@ get_header(); ?>
 
 <div id="page" class="container">
 	<?php while ( have_posts() ) : the_post(); ?>
-	<div id="content" class="break-on-mobile">
+	<div id="content">
 		<?php if(!$post->post_content == ''): ?>
 		<div class="page-content">
 			<?php the_content(); ?>

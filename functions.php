@@ -30,6 +30,7 @@ function henley_setup() {
 		'primary_header' => __( 'Primary Header Menu', 'henley' ),
 		'primary_footer' => __( 'Primary Footer Menu', 'henley' ),
 		'secondary_footer' => __( 'Secondary Footer Menu', 'henley' ),
+		'header_top_nav' => __( 'Header Top Navigation', 'henley' ),
 	) );	
 
 	add_editor_style('css/editor-styles.css');
@@ -132,7 +133,7 @@ if(!function_exists('set_custom_post_types')) {
 	   	
 	   	$events = new Custom_Post_Type( 'Event', 
 	 		array(
-	 			'rewrite' => array( 'with_front' => false, 'slug' => 'event' ),
+	 			'rewrite' => array( 'with_front' => false, 'slug' => 'events' ),
 	 			'capability_type' => 'post',
 	 		 	'publicly_queryable' => true,
 	   			'has_archive' => true, 
@@ -142,7 +143,17 @@ if(!function_exists('set_custom_post_types')) {
 	    		'supports' => array('title', 'thumbnail', 'editor'),
 	    		'plural' => 'Events'
 	   		)
-	   	);			   	
+	   	);		
+
+		$events->add_taxonomy("Event Category",
+			array(
+				'hierarchical' => true,
+				'rewrite' => array( 'with_front' => false, 'slug' => 'events/category' )
+			),
+			array(
+				'plural' => "Event Categories"
+			)
+		);	   		   	
 
 	 	// global $wp_rewrite;
 		// $wp_rewrite->flush_rules();

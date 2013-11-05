@@ -40,9 +40,9 @@ body {
 }
 
 #header {
-	padding-top: 28px;
+	padding-top: 24px;
 	text-align: right;
-	margin-bottom: 40px;
+	margin-bottom: 24px;
 
 	.site-logo {
 		width: 176px;
@@ -200,10 +200,11 @@ body {
 }
 
 #header-image {
+	margin-bottom: 20px;
 
-		&.container {
-			margin: 0 auto;
-		}
+	&.container {
+		margin: 0 auto 20px;
+	}
 
 	#homepage-scroller {
 
@@ -258,7 +259,7 @@ body {
 }
 
 #page {
-	margin-top: 20px;
+	// margin-top: 20px;
 
 	#content {
 		width: 75%;
@@ -266,6 +267,10 @@ body {
 		@include box-sizing(border-box);
 		padding-right: 15px;
 
+		@include device-width(7) {
+			width: 100%;
+		}
+		
 		h1:first-child {	
 	  		@include font-size(30);
 		}
@@ -439,6 +444,10 @@ body {
 		float:right;
 		@include box-sizing(border-box);
 
+		@include device-width(7) {
+			width: 100%;
+		}		
+
 		> ul {
 			padding: 0;
 			margin: 0;
@@ -447,6 +456,18 @@ body {
 				border: 1px solid #333;
 				padding: 20px;
 				margin-bottom: 20px;
+
+				@include device-width(7) {
+					@include box-sizing(border-box);
+					width: 48%;
+					margin: 10px 1%;					
+					float: left;
+				}		
+
+				@include device-width(5) {
+					width: 100%;
+					float: none;
+				}					
 
 				.gform_wrapper {
 
@@ -497,6 +518,10 @@ body {
 }
 
 #alumni {
+	.row {
+		margin-bottom: 15px;
+	}
+
 	.columns {
 		margin-bottom: 100px;
 
@@ -581,8 +606,49 @@ body {
 	}
 }
 
+#events {
+
+	.row {
+
+		.button {
+			float: right;
+			margin-top: 10px;
+		}
+	}
+}
+
+
 #call-box {
 	@extend .clearfix;
+
+	h1.phone-number {
+		@include font-size(30);
+		margin: 0;
+
+		@include device-width(11) {
+			@include font-size(25);
+		}
+
+		@include device-width(9) {
+			@include font-size(20);
+		}		
+
+		@include device-width(8) {
+			@include font-size(17);
+		}		
+
+		@include device-width(7) {
+			@include font-size(30);
+		}	
+
+		@include device-width(6) {
+			@include font-size(25);
+		}	
+
+		@include device-width(5) {
+			@include font-size(30);
+		}						
+	}
 
 	.button{
 		margin: 30px 0 0 0;
@@ -599,10 +665,7 @@ body {
 	}	
 }
 
-h1.phone-number {
-	font-size: 30px;
-	margin: 0;
-}
+
 
 #mba-sidebar {
 	@extend .clearfix;
@@ -650,64 +713,72 @@ h1.phone-number {
 		@include inline-block;
 	}
 }
+#contact {
 
-#contact-form {
-	max-width: 580px;
+	.row {
+		margin-bottom: 15px;
 
-	ul {
-		border: 1px solid #d6d6d6;
-		@extend .clearfix;
+	}
 
-		li {
-			background: none !important;
-			overflow: visible !important;
+	#contact-form {
+		max-width: 580px;
+
+		ul {
+			border: 1px solid #d6d6d6;
+			@extend .clearfix;
+
+			li {
+				background: none !important;
+				overflow: visible !important;
+			}
+		}
+
+
+		label {
+			background: #fbfbfb;
+			color: #666;
+			text-align: right;
+			padding: 4% 4% 4% 0;
+			float: left;
+			width: 30%;
+			border-right: 1px solid #dadada;
+			margin: 0;
+		}
+
+		.ginput_container {
+			float: right;
+			width: 57%;
+			padding: 3%;
+		}
+
+		.comment label {
+			height: 200px;
+		}
+
+		.gfield {
+			border: 1px solid #d6d6d6;
+			padding-left: 0 !important;
+			margin: -1px 0 0 0 !important;
+		}
+		input[type="text"] {
+			padding: 10px;
+			width: 100%;
+		}
+		select {
+			margin: 20px 15px !important;
+		}
+		input[type="submit"] {
+			max-width: 157px;
+			float: right;
+		}
+		textarea {
+			padding: 2%;
+			width: 96%;
+			border: 1px solid #aaaaaa;
 		}
 	}
-
-
-	label {
-		background: #fbfbfb;
-		color: #666;
-		text-align: right;
-		padding: 4% 4% 4% 0;
-		float: left;
-		width: 30%;
-		border-right: 1px solid #dadada;
-		margin: 0;
-	}
-
-	.ginput_container {
-		float: right;
-		width: 57%;
-		padding: 3%;
-	}
-
-	.comment label {
-		height: 200px;
-	}
-
-	.gfield {
-		border: 1px solid #d6d6d6;
-		padding-left: 0 !important;
-		margin: -1px 0 0 0 !important;
-	}
-	input[type="text"] {
-		padding: 10px;
-		width: 100%;
-	}
-	select {
-		margin: 20px 15px !important;
-	}
-	input[type="submit"] {
-		max-width: 157px;
-		float: right;
-	}
-	textarea {
-		padding: 2%;
-		width: 96%;
-		border: 1px solid #aaaaaa;
-	}
 }
+
 
 #slideupbox {
 	display: none;

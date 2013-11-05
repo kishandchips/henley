@@ -58,13 +58,7 @@ cc.initialise({
 			<div class="container">
 				<a href="<?php bloginfo( 'url' ); ?>" class="site-logo ir" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>"><?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?></a>	
 				<div id="top-nav">
-					<?php if ( is_user_logged_in() ) {
-						$current_user = wp_get_current_user();
-	    				// echo '<span class="userinfo">Hello ' . $current_user->user_login .'!</span>';
-	    				wp_loginout('/');
-					} else {
-					    wp_loginout('/');
-					} ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'header_top_nav', 'menu_class' => 'clearfix menu', 'container' => false ) ); ?>
 					<div class="socials">
 						<div class="fb-like" data-href="<?php bloginfo( 'url' ); ?>" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
 						<div class="g-plusone" data-size="medium" data-href="<?php bloginfo( 'url' ); ?>"></div>
