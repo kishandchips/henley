@@ -53,7 +53,7 @@ cc.initialise({
 </head>
 <?php 
 	$curr_page = get_queried_page();
-	$curr_page_id = $curr_page->ID; 
+	$curr_page_id = $curr_page->ID;
 ?>
 <body <?php body_class(); ?>>
 	<div id="page">
@@ -82,7 +82,7 @@ cc.initialise({
 		<?php if(get_field('slideshow', $curr_page_id)): ?>
 		<div id="header-image" class="container clearfix">
 			<?php
-				$values = get_field('slideshow');
+				$values = get_field('slideshow', $curr_page_id);
 				$number_of_slides = count($values);
 				?>
 				<?php if($number_of_slides > 1): ?>
@@ -91,7 +91,7 @@ cc.initialise({
 							<div class="inner">
 								<div class="scroller-mask">						
 									<?php $i = 0; ?>
-									<?php while (the_repeater_field('slideshow')) : ?>					
+									<?php while (the_repeater_field('slideshow', $curr_page_id)) : ?>					
 									<div class="scroll-item <?php if($i == 0) echo 'current'; ?>" data-id="<?php echo $i;?>">
 										<img class="scale" src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('title'); ?>">
 										<span class="title <?php the_sub_field('title_position'); ?>" style="background-color: <?php the_sub_field('title_background_colour'); ?>;">
@@ -109,7 +109,7 @@ cc.initialise({
 						</div>
 					</div><!-- #homepage-scroller -->			
 				<?php else: ?>
-					<?php while (the_repeater_field('slideshow')) : ?>		
+					<?php while (the_repeater_field('slideshow', $curr_page_id)) : ?>		
 						<div class="scroll-item">
 							<img class="scale" src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('title'); ?>">
 							<span class="title <?php the_sub_field('title_position'); ?>" style="background-color: <?php the_sub_field('title_background_colour'); ?>;">
