@@ -44,6 +44,10 @@ body {
 	text-align: right;
 	margin-bottom: 24px;
 
+	@include device-width(7) {
+		padding-top: 45px;
+	}
+
 	.site-logo {
 		width: 176px;
 		height: 78px;
@@ -62,6 +66,7 @@ body {
 			@include inline-block;
 			float: right;
 			margin: 5px 10px;
+			padding: 0;
 
 			a {
 				text-transform: uppercase;
@@ -80,8 +85,14 @@ body {
 			@include device-width(7) {
 				position: absolute;
 				top: -35px;
-				right: 10px;
+				right: 0;
+				width: 100%;
+				text-align: center;			
+			}
 
+			@include device-width(4) {
+				width: 120%;
+				right: -15%;
 			}
 
 			div {
@@ -378,7 +389,7 @@ body {
 				}
 
 				img.not-chosen {
-					@include device-width(5) {
+					@include device-width(4) {
 						display: none;
 					}
 				}
@@ -802,6 +813,8 @@ body {
 
 	@include device-width(5) {
 		line-height: 40px;
+		text-align: center;
+		padding: 20px;
 	}
 
 	h1 {
@@ -812,7 +825,14 @@ body {
 	a.button {
 		margin: 0 0 0 15px;
 		padding: 10px;
+		line-height: 1;
+		@include inline-block;
+
+		@include device-width(5) {
+			margin: 0;
+		}
 	}
+
 	p {
 		margin: 0;
 		font-size: 11px;

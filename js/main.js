@@ -54,6 +54,31 @@
 
 			$("select").selecter();	
 
+	        if($.fn.prettyPhoto){
+        		$('#lightbox').hide();
+
+        		var prettyPhotoOptions = {
+					social_tools: false,
+					theme: 'light_square', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+					horizontal_padding: 0,
+					opacity: 0.9,
+					deeplinking: false,
+					show_title: false,
+					default_width: 850		
+				}	
+
+				$('a.zoom').prettyPhoto(prettyPhotoOptions);
+
+				if( $('#lightbox').length > 0 && $(window).width() > 900 ){
+					var delay = $('#lightbox').data('delay');
+					setTimeout(function() {
+						$.prettyPhoto.open('#lightbox');
+						$("#lightbox-inner select").selecter("destroy");
+						$("#lightbox-inner select").selecter();			
+					}, delay);	
+				}											
+	        }			
+
 			$.fn.simpleSlider = function(options) {
 						
 				var defaults = {
@@ -196,7 +221,7 @@
 					speed: 500,
 					numItems: 2
 				});
-			}			
+			}					
 		},
 
 		setBoxSizing: function(){
