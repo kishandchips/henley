@@ -12,7 +12,7 @@
 	<?php elseif(get_row_layout() == "content_image"): ?>
  
 		<div class="row <?php echo $layout; ?>" style="<?php the_sub_field("css"); ?>">
-			<div class="images-bar <?php if( get_sub_field('first-image') ):?>hide<?php endif; ?>">
+			<div class="images-bar">
 				
 				<img class="scale <?php if( get_sub_field('first-image') ):?>not-chosen<?php endif; ?>" src="<?php the_sub_field("image"); ?>" alt="<?php the_sub_field("title"); ?>">
 
