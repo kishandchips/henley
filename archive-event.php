@@ -54,10 +54,8 @@ get_header(); ?>
 		</div>			
 	<?php while ( have_posts() ) : the_post(); ?>	
 		<div class="row content_image">
-			<div class="images-bar">
-				
-
-				<img class="scale <?php if( get_field('hide_image_on_mobile') ):?>not-chosen<?php endif; ?>" src="<?php the_field("event_image"); ?>" alt="" />
+			<div class="images-bar <?php if( get_field('hide_image_on_mobile') ):?>not-chosen<?php endif; ?>">
+				<img class="scale" src="<?php the_field("event_image"); ?>" alt="" />
 			</div>
 			<div class="content-wrapper">
 			<h1><?php the_title(); ?></h1>

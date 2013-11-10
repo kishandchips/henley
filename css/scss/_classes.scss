@@ -693,9 +693,12 @@ menu, ol, ul {
 		@include box-shadow(0 2px 5px #bababa);
 		@include box-shadow(0px 0px 3px #fff inset);
 
-		&:hover {
-			background-color: #002658; // Old browsers
-			text-decoration: none !important;			
+		
+		.no-touch & {
+						&:hover {
+				background-color: #002658; // Old browsers
+				text-decoration: none !important;			
+			}
 		}
 	}
 

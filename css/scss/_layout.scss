@@ -198,11 +198,12 @@ body {
 				 	text-transform: uppercase;
 				 	line-height: 1;
 
-				 	&:hover {
-				 		border-bottom: 2px solid #174686;
-				 		color: #174686;
-				 	}
-
+					.no-touch & {
+					 	&:hover {
+					 		border-bottom: 2px solid #174686;
+					 		color: #174686;
+					 	}						
+					}
 
 				 	@include device-width(10) {
 						@include font-size(11);
@@ -388,7 +389,7 @@ body {
 					margin-bottom: 6px;
 				}
 
-				img.not-chosen {
+				&.not-chosen {
 					@include device-width(4) {
 						display: none;
 					}
@@ -666,13 +667,15 @@ body {
 			margin: 0.83em 0 0 0;
 			box-shadow: 0 2px 2px #bfbfbf;
 
-			&:hover {
-				cursor: pointer;
-				background: #D7D7D7;
+			.no-touch {
+				&:hover {
+					cursor: pointer;
+					background: #D7D7D7;
 
-				a {
-					text-decoration: none;
-				}
+					a {
+						text-decoration: none;
+					}
+				}				
 			}
 
 			a {
@@ -732,6 +735,17 @@ body {
 	}
 
 	.row {
+
+		.images-bar {
+			@include device-width(4) {
+				height: 150px;
+				overflow: hidden;
+
+				img {
+					margin-top: -15%;
+				}
+			}
+		}
 
 		.button {
 			float: right;
@@ -1065,8 +1079,10 @@ body {
 					a {
 						color: #000;
 
-						&:hover {
-							text-decoration: underline;
+						.no-touch {
+							&:hover {
+								text-decoration: underline;
+							}						
 						}
 					}
 				}
@@ -1217,9 +1233,11 @@ body {
 			@include background-image(linear-gradient(top,  #0e386d 0%,#042f66 22%,#042b60 51%,#05285b 86%,#0e386d 100%));
 			@include box-shadow(0px 0px 0px transparent inset);
 
-			&:hover {
-				background-color: #13458b;	
-				background-image: none;		
+			.no-touch & {
+				&:hover {
+					background-color: #13458b;	
+					background-image: none;		
+				}				
 			}
 		}			
 
