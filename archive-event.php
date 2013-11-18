@@ -12,7 +12,8 @@
  */
 
 query_posts(array_merge($wp_query->query_vars, array(
-	'orderby' => 'menu_order',
+	'orderby' => 'meta_value_num',
+	'meta_key' => 'event_date',
 	'order' => 'ASC'
 )));
 get_header(); ?>

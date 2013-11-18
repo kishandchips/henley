@@ -156,6 +156,12 @@ function custom_gform_standard_settings($position, $form_id){
         <?php
     }
 }
+// disable gforms tabindex
+add_filter("gform_tabindex", "gform_tabindexer");
+function gform_tabindexer() {
+    $starting_index = 1000; // if you need a higher tabindex, update this number
+    return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
+}
 
 add_action('gform_enqueue_scripts',"custom_gform_enqueue_scripts", 10, 2);
 function custom_gform_enqueue_scripts($form, $is_ajax=false){
