@@ -28,7 +28,7 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 <?php if( get_field('want_lightbox')): ?>
-	<div id="lightbox" data-delay="<?php the_field('lightbox_delay') ?>">
+	<div id="lightbox" class="popupbox" data-delay="<?php the_field('lightbox_delay') ?>">
 		<div id="lightbox-inner">
 			<div class="container">
 				<div class="span ten">

@@ -52,7 +52,7 @@
 				navigation.slideToggle(200);
 			});
 
-			$("select").selecter();	
+			$(".gform_widget select").selecter();	
 
 	        if($.fn.prettyPhoto){
         		$('#lightbox').hide();
@@ -74,9 +74,6 @@
 					var delay = $('#lightbox').data('delay');
 					setTimeout(function() {
 						$.prettyPhoto.open('#lightbox');
-						// $('body').addClass('noscroll');
-						$("#lightbox-inner select").selecter("destroy");
-						$("#lightbox-inner select").selecter();			
 					}, delay);	
 				}											
 	        }
