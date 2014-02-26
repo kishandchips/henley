@@ -14,7 +14,7 @@
 			wp_enqueue_script('scroller', get_template_directory_uri().'/js/plugins/jquery.scroller.js');	
 			wp_enqueue_script('easing', get_template_directory_uri().'/js/plugins/jquery.easing.js');
 			wp_enqueue_script('selecter', get_template_directory_uri().'/js/plugins/jquery.fs.selecter.min.js');
-			wp_enqueue_script('prettyPhoto', get_template_directory_uri().'/js/plugins/jquery.prettyphoto.js');
+			wp_enqueue_script('prettyPhoto', get_template_directory_uri().'/js/plugins/jquery.colorbox-min.js');
 			wp_enqueue_script('main', get_template_directory_uri().'/js/main.js');
 		}
 		add_action('wp_enqueue_scripts', 'load_assets');
@@ -60,7 +60,7 @@ cc.initialise({
 	<div id="page">
 		<header id="header" role="banner">
 			<div class="container">
-				<a href="<?php bloginfo( 'url' ); ?>" class="site-logo ir" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>"><?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?></a>	
+				<a href="<?php bloginfo( 'url' ); ?>" class="site-logo ir" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>"><?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?></a>
 				<div id="top-nav" class="clearfix">
 					<div class="socials">
 						<div class="fb-like" data-href="https://www.facebook.com/henleymba" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
@@ -70,6 +70,13 @@ cc.initialise({
 						</div>
 					</div>
 					<?php wp_nav_menu( array( 'theme_location' => 'header_top_nav', 'menu_class' => 'clearfix menu', 'container' => false ) ); ?>					
+					<div class="phones">
+						Freephone: 
+						<span class="rTapNumber72599">+44 (0)208 621 0050</span>	
+						<br>
+						International:
+					  	<span class="rTapNumber72709">07595 292 684</span>
+					</div>
 				</div>
 				<div class="navigation-container clearfix">
 					<button class="mobile-navigation-btn uppercase"><i aria-hidden="true" class="icons-down_arrow"></i>menu</button>

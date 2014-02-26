@@ -53,5 +53,19 @@
   js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=579639135402354";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<!-- Response TAP-->
+<script type="text/javascript">
+   var adiInit = "10995", adiRVO = true;
+   var adiFunc = null;
+   (function() {
+      var adiSrc = document.createElement("script"); adiSrc.type = "text/javascript";
+      adiSrc.async = true;
+      adiSrc.src = ("https:" == document.location.protocol ? "https://static-ssl" : "http://static-cdn")
+      	+ ".responsetap.com/static/scripts/rTapTrack.min.js";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(adiSrc, s);
+   })();
+</script>
+<!-- End Response TAP-->
 </body>
 </html>
