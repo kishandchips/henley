@@ -897,6 +897,10 @@ body {
 		@extend .right;
 		position: static;
 	}
+
+	#callmeBackgroundContainer {
+		width: 100% !important;
+	}
 	
 	p {
 		margin: 0 !important;

@@ -232,7 +232,7 @@ function send_lead_form_data($entry, $form){
 		'ExpressedConsent' => true
     );
 
-	//print_r($curl_post_data);    
+	print_r($curl_post_data);    
   
  	$curl_post_data = json_encode($curl_post_data);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);	
@@ -241,7 +241,7 @@ function send_lead_form_data($entry, $form){
 	curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_post_data);
 	$curl_response = curl_exec($curl);
 
-	// echo '<response>';
-	// print_r($curl_response);
-	// echo '</response>';
+	echo '<response>';
+	print_r($curl_response);
+	echo '</response>';
 }
